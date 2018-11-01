@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		856B45C3218B716500B4C8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45C2218B716500B4C8AD /* AppDelegate.swift */; };
+		856B45C5218B716500B4C8AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45C4218B716500B4C8AD /* ViewController.swift */; };
+		856B45C8218B716500B4C8AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856B45C6218B716500B4C8AD /* Main.storyboard */; };
+		856B45CA218B716500B4C8AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 856B45C9218B716500B4C8AD /* Assets.xcassets */; };
+		856B45CD218B716500B4C8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856B45CB218B716500B4C8AD /* LaunchScreen.storyboard */; };
+		856B45D8218B716500B4C8AD /* PowerupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45D7218B716500B4C8AD /* PowerupsTests.swift */; };
+		856B45E3218B716500B4C8AD /* PowerupsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45E2218B716500B4C8AD /* PowerupsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		856B45D4218B716500B4C8AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 856B45B7218B716500B4C8AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 856B45BE218B716500B4C8AD;
+			remoteInfo = Powerups;
+		};
+		856B45DF218B716500B4C8AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 856B45B7218B716500B4C8AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 856B45BE218B716500B4C8AD;
+			remoteInfo = Powerups;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		856B45BF218B716500B4C8AD /* Powerups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerups.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		856B45C2218B716500B4C8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		856B45C4218B716500B4C8AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		856B45C7218B716500B4C8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		856B45C9218B716500B4C8AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		856B45CC218B716500B4C8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		856B45CE218B716500B4C8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		856B45D3218B716500B4C8AD /* PowerupsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		856B45D7218B716500B4C8AD /* PowerupsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupsTests.swift; sourceTree = "<group>"; };
+		856B45D9218B716500B4C8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		856B45DE218B716500B4C8AD /* PowerupsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		856B45E2218B716500B4C8AD /* PowerupsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupsUITests.swift; sourceTree = "<group>"; };
+		856B45E4218B716500B4C8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		856B45BC218B716500B4C8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45D0218B716500B4C8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45DB218B716500B4C8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		856B45B6218B716500B4C8AD = {
+			isa = PBXGroup;
+			children = (
+				856B45C1218B716500B4C8AD /* Powerups */,
+				856B45D6218B716500B4C8AD /* PowerupsTests */,
+				856B45E1218B716500B4C8AD /* PowerupsUITests */,
+				856B45C0218B716500B4C8AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		856B45C0218B716500B4C8AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				856B45BF218B716500B4C8AD /* Powerups.app */,
+				856B45D3218B716500B4C8AD /* PowerupsTests.xctest */,
+				856B45DE218B716500B4C8AD /* PowerupsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		856B45C1218B716500B4C8AD /* Powerups */ = {
+			isa = PBXGroup;
+			children = (
+				856B45C2218B716500B4C8AD /* AppDelegate.swift */,
+				856B45C4218B716500B4C8AD /* ViewController.swift */,
+				856B45C6218B716500B4C8AD /* Main.storyboard */,
+				856B45C9218B716500B4C8AD /* Assets.xcassets */,
+				856B45CB218B716500B4C8AD /* LaunchScreen.storyboard */,
+				856B45CE218B716500B4C8AD /* Info.plist */,
+			);
+			path = Powerups;
+			sourceTree = "<group>";
+		};
+		856B45D6218B716500B4C8AD /* PowerupsTests */ = {
+			isa = PBXGroup;
+			children = (
+				856B45D7218B716500B4C8AD /* PowerupsTests.swift */,
+				856B45D9218B716500B4C8AD /* Info.plist */,
+			);
+			path = PowerupsTests;
+			sourceTree = "<group>";
+		};
+		856B45E1218B716500B4C8AD /* PowerupsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				856B45E2218B716500B4C8AD /* PowerupsUITests.swift */,
+				856B45E4218B716500B4C8AD /* Info.plist */,
+			);
+			path = PowerupsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		856B45BE218B716500B4C8AD /* Powerups */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 856B45E7218B716500B4C8AD /* Build configuration list for PBXNativeTarget "Powerups" */;
+			buildPhases = (
+				856B45BB218B716500B4C8AD /* Sources */,
+				856B45BC218B716500B4C8AD /* Frameworks */,
+				856B45BD218B716500B4C8AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Powerups;
+			productName = Powerups;
+			productReference = 856B45BF218B716500B4C8AD /* Powerups.app */;
+			productType = "com.apple.product-type.application";
+		};
+		856B45D2218B716500B4C8AD /* PowerupsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 856B45EA218B716500B4C8AD /* Build configuration list for PBXNativeTarget "PowerupsTests" */;
+			buildPhases = (
+				856B45CF218B716500B4C8AD /* Sources */,
+				856B45D0218B716500B4C8AD /* Frameworks */,
+				856B45D1218B716500B4C8AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				856B45D5218B716500B4C8AD /* PBXTargetDependency */,
+			);
+			name = PowerupsTests;
+			productName = PowerupsTests;
+			productReference = 856B45D3218B716500B4C8AD /* PowerupsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		856B45DD218B716500B4C8AD /* PowerupsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 856B45ED218B716500B4C8AD /* Build configuration list for PBXNativeTarget "PowerupsUITests" */;
+			buildPhases = (
+				856B45DA218B716500B4C8AD /* Sources */,
+				856B45DB218B716500B4C8AD /* Frameworks */,
+				856B45DC218B716500B4C8AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				856B45E0218B716500B4C8AD /* PBXTargetDependency */,
+			);
+			name = PowerupsUITests;
+			productName = PowerupsUITests;
+			productReference = 856B45DE218B716500B4C8AD /* PowerupsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		856B45B7218B716500B4C8AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Sean Orelli";
+				TargetAttributes = {
+					856B45BE218B716500B4C8AD = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					856B45D2218B716500B4C8AD = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 856B45BE218B716500B4C8AD;
+					};
+					856B45DD218B716500B4C8AD = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 856B45BE218B716500B4C8AD;
+					};
+				};
+			};
+			buildConfigurationList = 856B45BA218B716500B4C8AD /* Build configuration list for PBXProject "Powerups" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 856B45B6218B716500B4C8AD;
+			productRefGroup = 856B45C0218B716500B4C8AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				856B45BE218B716500B4C8AD /* Powerups */,
+				856B45D2218B716500B4C8AD /* PowerupsTests */,
+				856B45DD218B716500B4C8AD /* PowerupsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		856B45BD218B716500B4C8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				856B45CD218B716500B4C8AD /* LaunchScreen.storyboard in Resources */,
+				856B45CA218B716500B4C8AD /* Assets.xcassets in Resources */,
+				856B45C8218B716500B4C8AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45D1218B716500B4C8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45DC218B716500B4C8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		856B45BB218B716500B4C8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				856B45C5218B716500B4C8AD /* ViewController.swift in Sources */,
+				856B45C3218B716500B4C8AD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45CF218B716500B4C8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				856B45D8218B716500B4C8AD /* PowerupsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856B45DA218B716500B4C8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				856B45E3218B716500B4C8AD /* PowerupsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		856B45D5218B716500B4C8AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 856B45BE218B716500B4C8AD /* Powerups */;
+			targetProxy = 856B45D4218B716500B4C8AD /* PBXContainerItemProxy */;
+		};
+		856B45E0218B716500B4C8AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 856B45BE218B716500B4C8AD /* Powerups */;
+			targetProxy = 856B45DF218B716500B4C8AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		856B45C6218B716500B4C8AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				856B45C7218B716500B4C8AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		856B45CB218B716500B4C8AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				856B45CC218B716500B4C8AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		856B45E5218B716500B4C8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		856B45E6218B716500B4C8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		856B45E8218B716500B4C8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = Powerups/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.Powerups;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		856B45E9218B716500B4C8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = Powerups/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.Powerups;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		856B45EB218B716500B4C8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = PowerupsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.PowerupsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerups.app/Powerups";
+			};
+			name = Debug;
+		};
+		856B45EC218B716500B4C8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = PowerupsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.PowerupsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerups.app/Powerups";
+			};
+			name = Release;
+		};
+		856B45EE218B716500B4C8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = PowerupsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.PowerupsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Powerups;
+			};
+			name = Debug;
+		};
+		856B45EF218B716500B4C8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EUR8GE96BE;
+				INFOPLIST_FILE = PowerupsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seanorelli.powerups.PowerupsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Powerups;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		856B45BA218B716500B4C8AD /* Build configuration list for PBXProject "Powerups" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856B45E5218B716500B4C8AD /* Debug */,
+				856B45E6218B716500B4C8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		856B45E7218B716500B4C8AD /* Build configuration list for PBXNativeTarget "Powerups" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856B45E8218B716500B4C8AD /* Debug */,
+				856B45E9218B716500B4C8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		856B45EA218B716500B4C8AD /* Build configuration list for PBXNativeTarget "PowerupsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856B45EB218B716500B4C8AD /* Debug */,
+				856B45EC218B716500B4C8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		856B45ED218B716500B4C8AD /* Build configuration list for PBXNativeTarget "PowerupsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856B45EE218B716500B4C8AD /* Debug */,
+				856B45EF218B716500B4C8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 856B45B7218B716500B4C8AD /* Project object */;
+}
