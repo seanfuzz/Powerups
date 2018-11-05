@@ -14,6 +14,27 @@
 		856B45CD218B716500B4C8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856B45CB218B716500B4C8AD /* LaunchScreen.storyboard */; };
 		856B45D8218B716500B4C8AD /* PowerupsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45D7218B716500B4C8AD /* PowerupsTests.swift */; };
 		856B45E3218B716500B4C8AD /* PowerupsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45E2218B716500B4C8AD /* PowerupsUITests.swift */; };
+		856B460F218B727F00B4C8AD /* PinPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45F7218B727F00B4C8AD /* PinPoint.swift */; };
+		856B4610218B727F00B4C8AD /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45F8218B727F00B4C8AD /* UIView+Pin.swift */; };
+		856B4611218B727F00B4C8AD /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45FA218B727F00B4C8AD /* TableView.swift */; };
+		856B4612218B727F00B4C8AD /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45FB218B727F00B4C8AD /* TableCell.swift */; };
+		856B4613218B727F00B4C8AD /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45FC218B727F00B4C8AD /* TableController.swift */; };
+		856B4614218B727F00B4C8AD /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45FD218B727F00B4C8AD /* TableModel.swift */; };
+		856B4616218B727F00B4C8AD /* UIAlertController+Powerups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4600218B727F00B4C8AD /* UIAlertController+Powerups.swift */; };
+		856B4617218B727F00B4C8AD /* UNUserNotificationCenter+Powerups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4601218B727F00B4C8AD /* UNUserNotificationCenter+Powerups.swift */; };
+		856B4618218B727F00B4C8AD /* CLLocationManager+Powerups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4602218B727F00B4C8AD /* CLLocationManager+Powerups.swift */; };
+		856B4619218B727F00B4C8AD /* UILabel+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4603218B727F00B4C8AD /* UILabel+Blink.swift */; };
+		856B461A218B727F00B4C8AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4604218B727F00B4C8AD /* Extensions.swift */; };
+		856B461B218B727F00B4C8AD /* CLProximity+Powerups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4605218B727F00B4C8AD /* CLProximity+Powerups.swift */; };
+		856B461C218B727F00B4C8AD /* UIView+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4606218B727F00B4C8AD /* UIView+Blink.swift */; };
+		856B461D218B727F00B4C8AD /* UIButton+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4607218B727F00B4C8AD /* UIButton+Blink.swift */; };
+		856B461E218B727F00B4C8AD /* Date+Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4608218B727F00B4C8AD /* Date+Formatted.swift */; };
+		856B461F218B727F00B4C8AD /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B4609218B727F00B4C8AD /* Encodable+Dictionary.swift */; };
+		856B4620218B727F00B4C8AD /* CALayer+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B460A218B727F00B4C8AD /* CALayer+Blink.swift */; };
+		856B4621218B727F00B4C8AD /* UIFont+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B460B218B727F00B4C8AD /* UIFont+Blink.swift */; };
+		856B4622218B727F00B4C8AD /* UITableView+ScreenShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B460C218B727F00B4C8AD /* UITableView+ScreenShot.swift */; };
+		856B4623218B727F00B4C8AD /* Observable+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B460D218B727F00B4C8AD /* Observable+Convenience.swift */; };
+		856B4624218B727F00B4C8AD /* UIColor+Blink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B460E218B727F00B4C8AD /* UIColor+Blink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +68,27 @@
 		856B45DE218B716500B4C8AD /* PowerupsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		856B45E2218B716500B4C8AD /* PowerupsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupsUITests.swift; sourceTree = "<group>"; };
 		856B45E4218B716500B4C8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		856B45F7218B727F00B4C8AD /* PinPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPoint.swift; sourceTree = "<group>"; };
+		856B45F8218B727F00B4C8AD /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		856B45FA218B727F00B4C8AD /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		856B45FB218B727F00B4C8AD /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		856B45FC218B727F00B4C8AD /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		856B45FD218B727F00B4C8AD /* TableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
+		856B4600218B727F00B4C8AD /* UIAlertController+Powerups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Powerups.swift"; sourceTree = "<group>"; };
+		856B4601218B727F00B4C8AD /* UNUserNotificationCenter+Powerups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+Powerups.swift"; sourceTree = "<group>"; };
+		856B4602218B727F00B4C8AD /* CLLocationManager+Powerups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Powerups.swift"; sourceTree = "<group>"; };
+		856B4603218B727F00B4C8AD /* UILabel+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Blink.swift"; sourceTree = "<group>"; };
+		856B4604218B727F00B4C8AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		856B4605218B727F00B4C8AD /* CLProximity+Powerups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLProximity+Powerups.swift"; sourceTree = "<group>"; };
+		856B4606218B727F00B4C8AD /* UIView+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blink.swift"; sourceTree = "<group>"; };
+		856B4607218B727F00B4C8AD /* UIButton+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Blink.swift"; sourceTree = "<group>"; };
+		856B4608218B727F00B4C8AD /* Date+Formatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatted.swift"; sourceTree = "<group>"; };
+		856B4609218B727F00B4C8AD /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
+		856B460A218B727F00B4C8AD /* CALayer+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Blink.swift"; sourceTree = "<group>"; };
+		856B460B218B727F00B4C8AD /* UIFont+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Blink.swift"; sourceTree = "<group>"; };
+		856B460C218B727F00B4C8AD /* UITableView+ScreenShot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ScreenShot.swift"; sourceTree = "<group>"; };
+		856B460D218B727F00B4C8AD /* Observable+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Convenience.swift"; sourceTree = "<group>"; };
+		856B460E218B727F00B4C8AD /* UIColor+Blink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Blink.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +139,9 @@
 		856B45C1218B716500B4C8AD /* Powerups */ = {
 			isa = PBXGroup;
 			children = (
+				856B45FE218B727F00B4C8AD /* Extensions */,
+				856B45F6218B727F00B4C8AD /* Pinpoint */,
+				856B45F9218B727F00B4C8AD /* Table */,
 				856B45C2218B716500B4C8AD /* AppDelegate.swift */,
 				856B45C4218B716500B4C8AD /* ViewController.swift */,
 				856B45C6218B716500B4C8AD /* Main.storyboard */,
@@ -123,6 +168,48 @@
 				856B45E4218B716500B4C8AD /* Info.plist */,
 			);
 			path = PowerupsUITests;
+			sourceTree = "<group>";
+		};
+		856B45F6218B727F00B4C8AD /* Pinpoint */ = {
+			isa = PBXGroup;
+			children = (
+				856B45F7218B727F00B4C8AD /* PinPoint.swift */,
+				856B45F8218B727F00B4C8AD /* UIView+Pin.swift */,
+			);
+			path = Pinpoint;
+			sourceTree = "<group>";
+		};
+		856B45F9218B727F00B4C8AD /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				856B45FA218B727F00B4C8AD /* TableView.swift */,
+				856B45FB218B727F00B4C8AD /* TableCell.swift */,
+				856B45FC218B727F00B4C8AD /* TableController.swift */,
+				856B45FD218B727F00B4C8AD /* TableModel.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		856B45FE218B727F00B4C8AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				856B4600218B727F00B4C8AD /* UIAlertController+Powerups.swift */,
+				856B4601218B727F00B4C8AD /* UNUserNotificationCenter+Powerups.swift */,
+				856B4602218B727F00B4C8AD /* CLLocationManager+Powerups.swift */,
+				856B4603218B727F00B4C8AD /* UILabel+Blink.swift */,
+				856B4604218B727F00B4C8AD /* Extensions.swift */,
+				856B4605218B727F00B4C8AD /* CLProximity+Powerups.swift */,
+				856B4606218B727F00B4C8AD /* UIView+Blink.swift */,
+				856B4607218B727F00B4C8AD /* UIButton+Blink.swift */,
+				856B4608218B727F00B4C8AD /* Date+Formatted.swift */,
+				856B4609218B727F00B4C8AD /* Encodable+Dictionary.swift */,
+				856B460A218B727F00B4C8AD /* CALayer+Blink.swift */,
+				856B460B218B727F00B4C8AD /* UIFont+Blink.swift */,
+				856B460C218B727F00B4C8AD /* UITableView+ScreenShot.swift */,
+				856B460D218B727F00B4C8AD /* Observable+Convenience.swift */,
+				856B460E218B727F00B4C8AD /* UIColor+Blink.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +343,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856B4613218B727F00B4C8AD /* TableController.swift in Sources */,
+				856B461C218B727F00B4C8AD /* UIView+Blink.swift in Sources */,
+				856B461B218B727F00B4C8AD /* CLProximity+Powerups.swift in Sources */,
+				856B4617218B727F00B4C8AD /* UNUserNotificationCenter+Powerups.swift in Sources */,
+				856B4612218B727F00B4C8AD /* TableCell.swift in Sources */,
+				856B4623218B727F00B4C8AD /* Observable+Convenience.swift in Sources */,
+				856B4624218B727F00B4C8AD /* UIColor+Blink.swift in Sources */,
 				856B45C5218B716500B4C8AD /* ViewController.swift in Sources */,
+				856B4618218B727F00B4C8AD /* CLLocationManager+Powerups.swift in Sources */,
+				856B461F218B727F00B4C8AD /* Encodable+Dictionary.swift in Sources */,
+				856B461E218B727F00B4C8AD /* Date+Formatted.swift in Sources */,
+				856B4621218B727F00B4C8AD /* UIFont+Blink.swift in Sources */,
+				856B4616218B727F00B4C8AD /* UIAlertController+Powerups.swift in Sources */,
+				856B4619218B727F00B4C8AD /* UILabel+Blink.swift in Sources */,
+				856B4611218B727F00B4C8AD /* TableView.swift in Sources */,
+				856B4614218B727F00B4C8AD /* TableModel.swift in Sources */,
+				856B4620218B727F00B4C8AD /* CALayer+Blink.swift in Sources */,
 				856B45C3218B716500B4C8AD /* AppDelegate.swift in Sources */,
+				856B4610218B727F00B4C8AD /* UIView+Pin.swift in Sources */,
+				856B460F218B727F00B4C8AD /* PinPoint.swift in Sources */,
+				856B461A218B727F00B4C8AD /* Extensions.swift in Sources */,
+				856B461D218B727F00B4C8AD /* UIButton+Blink.swift in Sources */,
+				856B4622218B727F00B4C8AD /* UITableView+ScreenShot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
