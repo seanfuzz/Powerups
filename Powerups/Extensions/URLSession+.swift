@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+// Reachability ???
+
 typealias ResponseClosure = (Data, HTTPURLResponse, Error?) -> Void
 
 enum HTTPMethod: String {

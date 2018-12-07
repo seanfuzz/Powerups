@@ -22,6 +22,8 @@
 		8558296721BB07CB0032B8A4 /* SpriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558296621BB07CB0032B8A4 /* SpriteController.swift */; };
 		8558296A21BB0AD70032B8A4 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558296921BB0AD70032B8A4 /* CameraController.swift */; };
 		8558296C21BB24B30032B8A4 /* BeaconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558296B21BB24B30032B8A4 /* BeaconController.swift */; };
+		8558296E21BB2D200032B8A4 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558296D21BB2D200032B8A4 /* CoreDataController.swift */; };
+		8558297021BB2D690032B8A4 /* CloudkitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558296F21BB2D690032B8A4 /* CloudkitController.swift */; };
 		856B45C3218B716500B4C8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45C2218B716500B4C8AD /* AppDelegate.swift */; };
 		856B45C5218B716500B4C8AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B45C4218B716500B4C8AD /* ViewController.swift */; };
 		856B45C8218B716500B4C8AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856B45C6218B716500B4C8AD /* Main.storyboard */; };
@@ -97,6 +99,8 @@
 		8558296621BB07CB0032B8A4 /* SpriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteController.swift; sourceTree = "<group>"; };
 		8558296921BB0AD70032B8A4 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		8558296B21BB24B30032B8A4 /* BeaconController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconController.swift; sourceTree = "<group>"; };
+		8558296D21BB2D200032B8A4 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		8558296F21BB2D690032B8A4 /* CloudkitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitController.swift; sourceTree = "<group>"; };
 		856B45BF218B716500B4C8AD /* Powerups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		856B45C2218B716500B4C8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		856B45C4218B716500B4C8AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				8558296B21BB24B30032B8A4 /* BeaconController.swift */,
 				8558296021BB07460032B8A4 /* BluetoothController.swift */,
 				8558296921BB0AD70032B8A4 /* CameraController.swift */,
+				8558296F21BB2D690032B8A4 /* CloudkitController.swift */,
+				8558296D21BB2D200032B8A4 /* CoreDataController.swift */,
 				8558296221BB07770032B8A4 /* NFCController.swift */,
 				8558295C21BAD7A10032B8A4 /* MapController.swift */,
 				8558296421BB079F0032B8A4 /* SceneController.swift */,
@@ -463,6 +469,7 @@
 				856B461C218B727F00B4C8AD /* UIView+.swift in Sources */,
 				856B461B218B727F00B4C8AD /* CLProximity+.swift in Sources */,
 				856B4617218B727F00B4C8AD /* UNUserNotificationCenter+.swift in Sources */,
+				8558296E21BB2D200032B8A4 /* CoreDataController.swift in Sources */,
 				856B4612218B727F00B4C8AD /* TableCell.swift in Sources */,
 				85E5CEFB21B18C8C00A5916D /* Closure.swift in Sources */,
 				856B4623218B727F00B4C8AD /* Optional+.swift in Sources */,
@@ -500,6 +507,7 @@
 				856B4620218B727F00B4C8AD /* CALayer+.swift in Sources */,
 				85E5CEF321B0A05700A5916D /* UITextView.swift in Sources */,
 				856B45C3218B716500B4C8AD /* AppDelegate.swift in Sources */,
+				8558297021BB2D690032B8A4 /* CloudkitController.swift in Sources */,
 				856B4610218B727F00B4C8AD /* UIView+Pin.swift in Sources */,
 				85E5CEF521B0A1F700A5916D /* UICollectionViewCell+.swift in Sources */,
 				856B460F218B727F00B4C8AD /* PinPoint.swift in Sources */,
