@@ -1,18 +1,12 @@
 //
 //  UIAlertController.swift
-//  BlinkDemo
 //
 //  Created by Sean Orelli on 8/28/18.
 //  Copyright © 2018 Fuzz. All rights reserved.
-//
 
 import UIKit
 
-extension String {
-	func alert(){
-		UIAlertController.alert(title: self)
-	}
-}
+
 
 extension UIAlertController {
 	static func alert(title: String?) {

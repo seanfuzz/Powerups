@@ -22,23 +22,18 @@ class TableCell: UITableViewCell {
 	//Emoji View
 	let circle = UIView()
 	public let emojiView = UILabel()
-	var observer: NSKeyValueObservation?
+    
 
 	weak var controller: TableController?
 
 	func setup(row: TableItem) {
 
-		observer = row.observe(\.isSelected) { (row, change) in
-			mainQueue(){ [unowned self] in
-				if row.isSelected { self.selected() } else { self.deselected() }
-			}
-		}
 
 		contentView.addSubview(bgView)
 		bgView.pin(view: contentView, top: 10, bottom: 10, left: 0, right: 0)
 
 		addMessageLabel(text: row.title)
-		contentView.addSubview(circle)
+		//contentView.addSubview(circle)
 		circle.frame = CGRect(x: 10, y: 24, width: 48, height: 48)
 		circle.addSubview(emojiView)
 		emojiView.align(width:1.2, height:1.2)
@@ -78,23 +73,23 @@ class TableCell: UITableViewCell {
 		messageView.borderColor = .white
 	}
 
-	func selected() {
-		UIView.animate(withDuration: 0.1) { [unowned self] in
-			self.bgView.backgroundColor = .cellSelectedColor
-			self.messageView.backgroundColor = .cellSelectedColor
-		}
-	}
-
-	func deselected() {
-		UIView.animate(withDuration: 0.2) { [unowned self] in
-			self.bgView.backgroundColor = .cellColor
-			self.messageView.backgroundColor = .cellColor
-		}
-	}
+//    func selected() {
+//        UIView.animate(withDuration: 0.1) { [unowned self] in
+//            self.bgView.backgroundColor = .cellSelectedColor
+//            self.messageView.backgroundColor = .cellSelectedColor
+//        }
+//    }
+//
+//    func deselected() {
+//        UIView.animate(withDuration: 0.2) { [unowned self] in
+//            self.bgView.backgroundColor = .cellColor
+//            self.messageView.backgroundColor = .cellColor
+//        }
+//    }
 
 	override func design() {
 		super.design()
-		selectionStyle = .none
+//		selectionStyle = .none
 		bgView.backgroundColor = .cellColor
 		bgView.layer.cornerRadius = 16
 

@@ -6,7 +6,31 @@
 import Foundation
 import UIKit
 
+extension UITableViewHeaderFooterView {
+    override func design(){
+        //super.design() //This creates runtime warnings, background color is not supposed ot be changed
+        textLabel?.textColor = .cellTextColor
+        backgroundView?.backgroundColor = .backgroundColor
+    }
+    
+}
+
 extension UITableView {
+    
+    func dequeCell<T>() -> T where T:UITableViewCell {
+        let identifier = "\(T.self)"
+        register(T.self, forCellReuseIdentifier: identifier)
+        if let cell = dequeueReusableCell(withIdentifier: identifier) as? T {
+            return cell
+        }
+        return T()
+    }
+    
+    override func design(){
+        super.design()
+        backgroundColor = UIColor.backgroundColor
+    }
+    
     func screenshot() -> UIImage {
 
         var image = UIImage();

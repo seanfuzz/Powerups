@@ -1,6 +1,6 @@
 //
 //  CLLocationManager.swift
-//  BlinkDemo
+//
 //
 //  Created by Sean Orelli on 8/28/18.
 //  Copyright © 2018 Fuzz. All rights reserved.
@@ -19,17 +19,27 @@ extension CLLocationManager: CLLocationManagerDelegate {
 
 	static var shared: CLLocationManager?
 	static var inRegion = false
+    
+    @discardableResult
 	static func setupLocationManager() -> CLLocationManager {
+        
 		let l = CLLocationManager()
 		l.delegate = l
 		l.desiredAccuracy = kCLLocationAccuracyBest
 		l.distanceFilter = 100
-		l.allowsBackgroundLocationUpdates = true
+        
+        // requires plist entry
+        // Can we check the plist first?
+		//l.allowsBackgroundLocationUpdates = true
+        
 		shared = l
 		return l
 	}
 
 	static func requestAuth(){
+        if shared == nil {
+            setupLocationManager()
+        }
 		if (CLLocationManager.locationServicesEnabled()) {
 			CLLocationManager.shared?.requestAlwaysAuthorization()
 			CLLocationManager.shared?.requestWhenInUseAuthorization()

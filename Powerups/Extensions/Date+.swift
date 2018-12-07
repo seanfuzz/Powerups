@@ -5,6 +5,17 @@
 
 import Foundation
 
+
+enum DateFormat: String {
+    // January 1, 2019
+    // Jan 1 2019
+    // 1/1/19
+    //
+    case monthDayYear = "MM-DD-YYYY"
+    
+    
+}
+
 extension Date {
 
     func timeString() -> String {

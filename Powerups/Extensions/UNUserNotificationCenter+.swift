@@ -1,6 +1,5 @@
 //
 //  UNUserNotificationCenter.swift
-//  BlinkDemo
 //
 //  Created by Sean Orelli on 8/28/18.
 //  Copyright © 2018 Fuzz. All rights reserved.
@@ -8,12 +7,6 @@
 
 import UIKit
 import UserNotifications
-
-extension String {
-	func sendLocalNotification(){
-		UNUserNotificationCenter.sendLocalNotification(message:self)
-	}
-}
 
 extension UNUserNotificationCenter: UNUserNotificationCenterDelegate {
 

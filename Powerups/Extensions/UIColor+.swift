@@ -8,14 +8,6 @@
 
 import UIKit
 
-
-extension UIView {
-    static var borderWidth: CGFloat {
-        if UIColor.darkTheme { return 0 }
-        return 1
-    }
-}
-
 /*
 background
 border

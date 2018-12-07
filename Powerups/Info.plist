@@ -34,6 +34,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Big Brother is watching you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Big Brother is watching you</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Big Brother is watching you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Big Brother is watching you</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -6,7 +6,32 @@
 import Foundation
 import UIKit
 
+
 extension UIButton {
+    
+    var title: String? {
+        get { return titleLabel?.text }
+        set(t) { setTitle(t, for: .normal)}
+    }
+    
+    @objc private func doTouchUp() { touchUp() }
+    var touchUp: Closure {
+        get { return associated(closure: "touchUp") }
+        set(a) {
+            associatedObjects["touchUp"] = a
+            addTarget(self, action: #selector(doTouchUp), for: .touchUpInside)
+        }
+    }
+    
+    @objc private func doTouchDown() { touchDown() }
+    var touchDown: Closure {
+        get { return associated(closure: "touchDown") }
+        set(a) {
+            associatedObjects["touchDown"] = a
+            addTarget(self, action: #selector(doTouchDown), for: .touchUpInside)
+        }
+    }
+    
 
     func setBackgroundColor(_ color: UIColor) {
         let image = UIImage(color: color, size: CGSize(width: 1, height: 1))

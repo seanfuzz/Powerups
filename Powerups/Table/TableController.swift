@@ -12,7 +12,7 @@ import UIKit
 
 				Table Controller
 _____________________________________________*/
-class TableController: ViewController {
+class TableController: UIViewController {
 
  	var tableModel = TableModel()
 	var tableView = TableView()
@@ -41,7 +41,8 @@ class TableController: ViewController {
 		tableView.reloadData()
 	}
 
-	func add(tableItem: TableItemProvider) -> TableItem {
+    @discardableResult
+    func add(tableItem: TableItemProvider) -> TableItem {
 		let item = tableItem.tableItem
 		let section = tableModel.sections.last ?? TableSection()
 		section.rows.append(item)
@@ -53,6 +54,7 @@ class TableController: ViewController {
 		tableItems.forEach { let _ = add(tableItem: $0) }
 	}
 
+    @discardableResult
 	func add(tableSection: TableSectionProvider) -> TableSection {
 		let section = tableSection.tableSection
 		if !tableModel.sections.contains(section){

@@ -13,13 +13,14 @@ import UIKit
 				Table Model
 _____________________________________________*/
 class TableModel: NSObject, UITableViewDataSource, 	UITableViewDelegate {
+    
 	var sections = [TableSection]()
 	let defaultRowHeight = CGFloat(100)
 	let cellIdentifier = "TableCell"
-
+    var autoDeselect = true
 	weak var controller: TableController?
 
-	func rowFor(indexPath: IndexPath) -> TableItem? {
+	func itemAt(indexPath: IndexPath) -> TableItem? {
 		guard sections.count > indexPath.section else { return nil }
 		guard sections[indexPath.section].rows.count > indexPath.row  else { return nil }
 		return sections[indexPath.section].rows[indexPath.row]
@@ -35,7 +36,7 @@ class TableModel: NSObject, UITableViewDataSource, 	UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 		guard let row = rowFor(indexPath: indexPath) else { return TableCell() }
+ 		guard let row = itemAt(indexPath: indexPath) else { return TableCell() }
 
 		let cell = row.cell(tableView: tableView)
 		cell.controller = self.controller
@@ -50,6 +51,7 @@ class TableModel: NSObject, UITableViewDataSource, 	UITableViewDelegate {
 		guard sections.count > section else { return nil }
 		return sections[section].title
 	}
+    
 	func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
     	if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
 			tableViewHeaderFooterView.design()
@@ -60,9 +62,8 @@ class TableModel: NSObject, UITableViewDataSource, 	UITableViewDelegate {
 //
 //	}
 
-
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if let row = rowFor(indexPath: indexPath) {
+		if let row = itemAt(indexPath: indexPath) {
 			return row.height
 		}
 
@@ -70,92 +71,15 @@ class TableModel: NSObject, UITableViewDataSource, 	UITableViewDelegate {
 	}
 
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-		if let row = rowFor(indexPath: indexPath) {
-			row.isSelected = !row.isSelected
-		}
+        if autoDeselect{
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        if let action = itemAt(indexPath: indexPath)?.selectedAction {
+            action()
+        }
+//        if let row = rowFor(indexPath: indexPath) {
+//            row.isSelected = !row.isSelected
+//        }
 	}
 
 }
-
-/*_____________________________________________
-
-				Table Section
-_____________________________________________*/
-class TableSection: NSObject, TableSectionProvider {
-	var rows = [TableItem]()
-	var title: String?
-	var open: Bool = true
-	var hidden: Bool = false
-	var indexName: String?
-	var header: UIView?
-
-	func add(item: TableItem){
-		rows.append(item)
-	}
-
-	var tableSection: TableSection{ return self }
-}
-
-
-/*_____________________________________________
-
-				Table Item
-_____________________________________________*/
-@objc class TableItem: NSObject, TableItemProvider {
-
-	var title: String?
-	var subtitle: String?
-	var image: UIImage?
-	var height: CGFloat = 100
-	var emoji: String?
-	var cellIdentifier: String { return "TableCell" }
-
-	var autoDeselct = true
-	var selectedAction: Closure?
-	var deselectedAction: Closure?
-
-	var tableItem: TableItem { return self }
-	var pickerElements: [String]?
-	
-	convenience init(title: String) {
-		self.init()
-		self.title = title
-	}
-	
-	@objc dynamic var isSelected = false {
-		didSet{
-			isSelected ? selectedAction?() : deselectedAction?()
-			if isSelected && autoDeselct {
-				delay(0.1) { [unowned self] in
-					self.isSelected = false
-				}
-			}
-		}
-	}
-
-	func cell(tableView: UITableView) -> TableCell {
-		return TableCell()
-	}
-
-}
-
-
-protocol TableItemProvider {
-	var tableItem: TableItem { get }
-}
-
-protocol TableSectionProvider {
-	var tableSection: TableSection { get }
-}
-
-extension String: TableItemProvider {
-
-	var tableItem: TableItem {
-		let item = TableItem()
-		item.title = self
-		return item
-	}
-
-}
-
-

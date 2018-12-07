@@ -17,4 +17,12 @@ extension UILabel {
         textColor = .white
         font = .captionPillText
     }
+    
+    override func design() {
+        super.design()
+        //backgroundColor = UIColor.clear
+        font = UIFont.boldSystemFont(ofSize: 24)
+        textColor = UIColor.cellTextColor
+    }
 }
+
