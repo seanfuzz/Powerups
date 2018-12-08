@@ -12,8 +12,12 @@
 		8558298621BB30730032B8A4 /* Powerups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8558298421BB30730032B8A4 /* Powerups.xcdatamodeld */; };
 		8558298821BB30750032B8A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8558298721BB30750032B8A4 /* Assets.xcassets */; };
 		8558298B21BB30750032B8A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558298921BB30750032B8A4 /* LaunchScreen.storyboard */; };
+		858A1F9921BB3ED7009C74E5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9421BB3ED7009C74E5 /* CameraView.swift */; };
+		858A1F9A21BB3ED7009C74E5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9521BB3ED7009C74E5 /* CameraController.swift */; };
+		858A1F9B21BB3ED7009C74E5 /* SelfieCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */; };
+		858A1F9C21BB3ED7009C74E5 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9721BB3ED7009C74E5 /* CameraModel.swift */; };
+		858A1F9D21BB3ED7009C74E5 /* SelfieCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */; };
 		85E91F2121BB32290064DA5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91EF221BB32290064DA5B /* ViewController.swift */; };
-		85E91F2221BB32290064DA5B /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91EF321BB32290064DA5B /* CameraController.swift */; };
 		85E91F2321BB32290064DA5B /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91EF421BB32290064DA5B /* CoreDataController.swift */; };
 		85E91F2421BB32290064DA5B /* CloudkitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91EF521BB32290064DA5B /* CloudkitController.swift */; };
 		85E91F2521BB32290064DA5B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91EF621BB32290064DA5B /* MapController.swift */; };
@@ -73,8 +77,12 @@
 		8558298721BB30750032B8A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8558298A21BB30750032B8A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8558298C21BB30750032B8A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858A1F9421BB3ED7009C74E5 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		858A1F9521BB3ED7009C74E5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraController.swift; sourceTree = "<group>"; };
+		858A1F9721BB3ED7009C74E5 /* CameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraModel.swift; sourceTree = "<group>"; };
 		85E91EF221BB32290064DA5B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		85E91EF321BB32290064DA5B /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		85E91EF421BB32290064DA5B /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		85E91EF521BB32290064DA5B /* CloudkitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitController.swift; sourceTree = "<group>"; };
 		85E91EF621BB32290064DA5B /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				85E91F0421BB32290064DA5B /* Extensions */,
+				858A1F9321BB3ED7009C74E5 /* Camera */,
 				85E91F4D21BB32360064DA5B /* Pinpoint */,
 				85E91F5221BB32480064DA5B /* Table */,
 				85E91EFC21BB32290064DA5B /* Collection */,
@@ -171,11 +180,30 @@
 			path = Powerups;
 			sourceTree = "<group>";
 		};
+		858A1F9321BB3ED7009C74E5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				858A1F9E21BB40F2009C74E5 /* SelfieCamera */,
+				858A1F9721BB3ED7009C74E5 /* CameraModel.swift */,
+				858A1F9421BB3ED7009C74E5 /* CameraView.swift */,
+				858A1F9521BB3ED7009C74E5 /* CameraController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		858A1F9E21BB40F2009C74E5 /* SelfieCamera */ = {
+			isa = PBXGroup;
+			children = (
+				858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */,
+				858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */,
+			);
+			path = SelfieCamera;
+			sourceTree = "<group>";
+		};
 		85E91EF121BB32290064DA5B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				85E91EF221BB32290064DA5B /* ViewController.swift */,
-				85E91EF321BB32290064DA5B /* CameraController.swift */,
 				85E91EF421BB32290064DA5B /* CoreDataController.swift */,
 				85E91EF521BB32290064DA5B /* CloudkitController.swift */,
 				85E91EF621BB32290064DA5B /* MapController.swift */,
@@ -212,33 +240,33 @@
 		85E91F0421BB32290064DA5B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				85E91F0521BB32290064DA5B /* UICollectionViewCell+.swift */,
 				85E91F0621BB32290064DA5B /* CALayer+.swift */,
-				85E91F0821BB32290064DA5B /* MKMapView.swift */,
 				85E91F0921BB32290064DA5B /* Closure.swift */,
-				85E91F0A21BB32290064DA5B /* CLProximity+.swift */,
-				85E91F0B21BB32290064DA5B /* UIAlertController+.swift */,
-				85E91F0C21BB32290064DA5B /* NSObject+.swift */,
-				85E91F0D21BB32290064DA5B /* UIFont+.swift */,
-				85E91F0E21BB32290064DA5B /* UISearchBar+.swift */,
-				85E91F0F21BB32290064DA5B /* Encodable+.swift */,
 				85E91F1021BB32290064DA5B /* CLLocationManager+.swift */,
+				85E91F0A21BB32290064DA5B /* CLProximity+.swift */,
+				85E91F1B21BB32290064DA5B /* Date+.swift */,
+				85E91F1321BB32290064DA5B /* Dictionary+.swift */,
+				85E91F0F21BB32290064DA5B /* Encodable+.swift */,
+				85E91F0821BB32290064DA5B /* MKMapView.swift */,
+				85E91F0C21BB32290064DA5B /* NSObject+.swift */,
+				85E91F1921BB32290064DA5B /* Optional+.swift */,
+				85E91F1721BB32290064DA5B /* String.swift */,
+				85E91F0B21BB32290064DA5B /* UIAlertController+.swift */,
+				85E91F1621BB32290064DA5B /* UIButton+.swift */,
+				85E91F0521BB32290064DA5B /* UICollectionViewCell+.swift */,
+				85E91F2021BB32290064DA5B /* UIColor+.swift */,
+				85E91F0D21BB32290064DA5B /* UIFont+.swift */,
+				85E91F1C21BB32290064DA5B /* UIImage+.swift */,
+				85E91F1821BB32290064DA5B /* UIImageView.swift */,
+				85E91F1421BB32290064DA5B /* UILabel+.swift */,
+				85E91F0E21BB32290064DA5B /* UISearchBar+.swift */,
+				85E91F1D21BB32290064DA5B /* UITableView+.swift */,
+				85E91F1521BB32290064DA5B /* UITableViewCell.swift */,
+				85E91F1F21BB32290064DA5B /* UITextView.swift */,
 				85E91F1121BB32290064DA5B /* UIView+.swift */,
 				85E91F1221BB32290064DA5B /* UIViewController+.swift */,
-				85E91F1321BB32290064DA5B /* Dictionary+.swift */,
-				85E91F1421BB32290064DA5B /* UILabel+.swift */,
-				85E91F1521BB32290064DA5B /* UITableViewCell.swift */,
-				85E91F1621BB32290064DA5B /* UIButton+.swift */,
-				85E91F1721BB32290064DA5B /* String.swift */,
-				85E91F1821BB32290064DA5B /* UIImageView.swift */,
-				85E91F1921BB32290064DA5B /* Optional+.swift */,
-				85E91F1A21BB32290064DA5B /* URLSession+.swift */,
-				85E91F1B21BB32290064DA5B /* Date+.swift */,
-				85E91F1C21BB32290064DA5B /* UIImage+.swift */,
-				85E91F1D21BB32290064DA5B /* UITableView+.swift */,
 				85E91F1E21BB32290064DA5B /* UNUserNotificationCenter+.swift */,
-				85E91F1F21BB32290064DA5B /* UITextView.swift */,
-				85E91F2021BB32290064DA5B /* UIColor+.swift */,
+				85E91F1A21BB32290064DA5B /* URLSession+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,7 +383,9 @@
 				85E91F2D21BB32290064DA5B /* CollectionSection.swift in Sources */,
 				85E91F3A21BB32290064DA5B /* UISearchBar+.swift in Sources */,
 				85E91F3521BB32290064DA5B /* Closure.swift in Sources */,
+				858A1F9C21BB3ED7009C74E5 /* CameraModel.swift in Sources */,
 				85E91F4121BB32290064DA5B /* UITableViewCell.swift in Sources */,
+				858A1F9B21BB3ED7009C74E5 /* SelfieCameraController.swift in Sources */,
 				85E91F5F21BB32480064DA5B /* TableController.swift in Sources */,
 				85E91F5121BB32360064DA5B /* UIView+Pin.swift in Sources */,
 				85E91F3E21BB32290064DA5B /* UIViewController+.swift in Sources */,
@@ -373,7 +403,7 @@
 				8558298621BB30730032B8A4 /* Powerups.xcdatamodeld in Sources */,
 				85E91F5C21BB32480064DA5B /* TableSection.swift in Sources */,
 				85E91F2E21BB32290064DA5B /* CollectionItem.swift in Sources */,
-				85E91F2221BB32290064DA5B /* CameraController.swift in Sources */,
+				858A1F9D21BB3ED7009C74E5 /* SelfieCameraModel.swift in Sources */,
 				85E91F5021BB32360064DA5B /* PinPoint.swift in Sources */,
 				85E91F3C21BB32290064DA5B /* CLLocationManager+.swift in Sources */,
 				85E91F3621BB32290064DA5B /* CLProximity+.swift in Sources */,
@@ -383,10 +413,12 @@
 				85E91F2621BB32290064DA5B /* BeaconController.swift in Sources */,
 				85E91F2721BB32290064DA5B /* BluetoothController.swift in Sources */,
 				85E91F3421BB32290064DA5B /* MKMapView.swift in Sources */,
+				858A1F9A21BB3ED7009C74E5 /* CameraController.swift in Sources */,
 				85E91F2B21BB32290064DA5B /* CollectionCell.swift in Sources */,
 				85E91F5D21BB32480064DA5B /* TableItem.swift in Sources */,
 				85E91F2421BB32290064DA5B /* CloudkitController.swift in Sources */,
 				85E91F4A21BB32290064DA5B /* UNUserNotificationCenter+.swift in Sources */,
+				858A1F9921BB3ED7009C74E5 /* CameraView.swift in Sources */,
 				85E91F3921BB32290064DA5B /* UIFont+.swift in Sources */,
 				85E91F4C21BB32290064DA5B /* UIColor+.swift in Sources */,
 				85E91F4921BB32290064DA5B /* UITableView+.swift in Sources */,

@@ -25,6 +25,8 @@ class DemoController: TableController {
             }
         }
         
+        addItem(title: "Camera", controller: CameraController())
+
         addItem(title: "Map", controller: MapController())
         addItem(title: "Sprite", controller: SpriteController())
         addItem(title: "Scene", controller: SceneController())
