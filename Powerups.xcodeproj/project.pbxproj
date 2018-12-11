@@ -12,6 +12,7 @@
 		8558298621BB30730032B8A4 /* Powerups.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8558298421BB30730032B8A4 /* Powerups.xcdatamodeld */; };
 		8558298821BB30750032B8A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8558298721BB30750032B8A4 /* Assets.xcassets */; };
 		8558298B21BB30750032B8A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8558298921BB30750032B8A4 /* LaunchScreen.storyboard */; };
+		8567F65521BED6EC005A5702 /* DateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567F65421BED6EC005A5702 /* DateController.swift */; };
 		858A1F9921BB3ED7009C74E5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9421BB3ED7009C74E5 /* CameraView.swift */; };
 		858A1F9A21BB3ED7009C74E5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9521BB3ED7009C74E5 /* CameraController.swift */; };
 		858A1F9B21BB3ED7009C74E5 /* SelfieCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */; };
@@ -77,11 +78,13 @@
 		8558298721BB30750032B8A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8558298A21BB30750032B8A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8558298C21BB30750032B8A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8567F65421BED6EC005A5702 /* DateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateController.swift; sourceTree = "<group>"; };
 		858A1F9421BB3ED7009C74E5 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		858A1F9521BB3ED7009C74E5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraController.swift; sourceTree = "<group>"; };
 		858A1F9721BB3ED7009C74E5 /* CameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraModel.swift; sourceTree = "<group>"; };
+		858A1F9F21BD7EB7009C74E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		85E91EF221BB32290064DA5B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85E91EF421BB32290064DA5B /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		85E91EF521BB32290064DA5B /* CloudkitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitController.swift; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 				8558298921BB30750032B8A4 /* LaunchScreen.storyboard */,
 				8558298C21BB30750032B8A4 /* Info.plist */,
 				8558298421BB30730032B8A4 /* Powerups.xcdatamodeld */,
+				858A1F9F21BD7EB7009C74E5 /* README.md */,
 			);
 			path = Powerups;
 			sourceTree = "<group>";
@@ -212,6 +216,7 @@
 				85E91EF921BB32290064DA5B /* NFCController.swift */,
 				85E91EFA21BB32290064DA5B /* SceneController.swift */,
 				85E91EFB21BB32290064DA5B /* SpriteController.swift */,
+				8567F65421BED6EC005A5702 /* DateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				85E91F4C21BB32290064DA5B /* UIColor+.swift in Sources */,
 				85E91F4921BB32290064DA5B /* UITableView+.swift in Sources */,
 				85E91F3121BB32290064DA5B /* UICollectionViewCell+.swift in Sources */,
+				8567F65521BED6EC005A5702 /* DateController.swift in Sources */,
 				85E91F4521BB32290064DA5B /* Optional+.swift in Sources */,
 				85E91F3B21BB32290064DA5B /* Encodable+.swift in Sources */,
 				85E91F4021BB32290064DA5B /* UILabel+.swift in Sources */,

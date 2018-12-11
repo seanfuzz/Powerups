@@ -10,7 +10,10 @@ import UIKit
 
 // Declare a global var to produce a unique address as the assoc object handle
 private var associatedObjectKey: UInt8 = 0
-
+/*_____________________________________
+ 
+                NSObject
+ ____________________________________*/
 extension NSObject {
     
     func associated(closure:String) -> Closure {
