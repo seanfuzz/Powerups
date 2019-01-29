@@ -14,13 +14,13 @@ import Vision
 
 /*________________________________________________________________
 
-							Camera View
+                        Camera View
 ________________________________________________________________*/
 class CameraView: UIView
 {
-	var previewLayer: AVCaptureVideoPreviewLayer?
+    var previewLayer: AVCaptureVideoPreviewLayer?
 
-	func configurePreview(model: CameraModel)
+    func configurePreview(model: CameraModel)
     {
     	if let session = model.session
     	{
