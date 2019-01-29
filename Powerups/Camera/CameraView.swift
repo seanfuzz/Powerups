@@ -38,10 +38,10 @@ class CameraView: UIView
 
     func teardownAVCapture()
     {
-		if let previewLayer = self.previewLayer
+        if let previewLayer = self.previewLayer
         {
             previewLayer.removeFromSuperlayer()
-			self.previewLayer = nil
+            self.previewLayer = nil
         }
     }
 }
