@@ -24,16 +24,16 @@ class CameraView: UIView
     {
     	if let session = model.session
     	{
-			let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-			previewLayer.name = "CameraPreview"
-			previewLayer.backgroundColor = UIColor.black.cgColor
-			previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-
-			layer.masksToBounds = true
-			previewLayer.frame = layer.bounds
-			layer.addSublayer(previewLayer)
-			self.previewLayer = previewLayer
-		}
+            let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+            previewLayer.name = "CameraPreview"
+            previewLayer.backgroundColor = UIColor.black.cgColor
+            previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            
+            layer.masksToBounds = true
+            previewLayer.frame = layer.bounds
+            layer.addSublayer(previewLayer)
+            self.previewLayer = previewLayer
+        }
     }
 
     func teardownAVCapture()
