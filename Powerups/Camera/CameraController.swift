@@ -24,7 +24,7 @@ class CameraController: ViewController, CameraModelDelegate
     }
     
     
-    @IBOutlet weak var previewView: CameraView? // CameraView
+    @IBOutlet weak var cameraView: CameraView? // CameraView
     
     // Ensure that the interface stays locked in Portrait.
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask
@@ -43,7 +43,7 @@ class CameraController: ViewController, CameraModelDelegate
         super.viewDidLoad()
         
         model.setupSession()
-        previewView?.configurePreview(model:model)
+        cameraView?.configurePreview(model:model)
         model.session?.startRunning()
     }
     
@@ -53,7 +53,7 @@ class CameraController: ViewController, CameraModelDelegate
     func teardownAVCapture()
     {
         model.teardownAVCapture()
-        previewView?.teardownAVCapture()
+        cameraView?.teardownAVCapture()
     }
     
     
