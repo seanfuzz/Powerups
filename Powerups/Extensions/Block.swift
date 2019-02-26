@@ -13,21 +13,21 @@ import ImageIO
 import CoreML
 import Vision
 
-typealias Closure = ()->()
+
 typealias NotificationClosure = (Notification)->()
 typealias ClosureToBool = ()->(Bool)
 typealias ClosureWithString = (String)->()
 
 
-func backgroundQueue(closure:@escaping Closure) {
+func backgroundQueue(closure:@escaping Block) {
     DispatchQueue.global(qos: .default).async(execute: closure)
 }
 
-func mainQueue(closure:@escaping Closure) {
+func mainQueue(closure:@escaping Block) {
     DispatchQueue.main.async(execute: closure)
 }
 
-func delay(_ seconds: Double, closure:@escaping Closure) {
+func delay(_ seconds: Double, closure:@escaping Block) {
     DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: closure)
 }
 

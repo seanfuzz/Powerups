@@ -16,8 +16,8 @@ private var associatedObjectKey: UInt8 = 0
  ____________________________________*/
 extension NSObject {
     
-    func associated(closure:String) -> Closure {
-        if let a = associatedObjects[closure] as? Closure { return a }
+    func associated(closure:String) -> Block {
+        if let a = associatedObjects[closure] as? Block { return a }
         return {}
     }
     

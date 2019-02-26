@@ -159,11 +159,11 @@ extension URLSession {
         
     }
     
-    func upload(urlString: String, parameters: [String: String]?=nil, data: Data, progress:Closure?=nil, completion: ResponseClosure?=nil) {
+    func upload(urlString: String, parameters: [String: String]?=nil, data: Data, progress:Block?=nil, completion: ResponseClosure?=nil) {
         
     }
     
-    func download(urlString: String, parameters: [String: String]?=nil, progress:Closure? = nil, completion: ResponseClosure?=nil) {
+    func download(urlString: String, parameters: [String: String]?=nil, progress:Block? = nil, completion: ResponseClosure?=nil) {
         
     }
 }

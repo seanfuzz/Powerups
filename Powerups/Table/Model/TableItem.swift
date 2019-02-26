@@ -23,8 +23,8 @@ import UIKit
     var cellIdentifier: String { return "TableCell" }
     
     var autoDeselct = true
-    var selectedAction: Closure?
-    var deselectedAction: Closure?
+    var selectedAction: Block?
+    var deselectedAction: Block?
     
     var tableItem: TableItem { return self }
     var pickerElements: [String]?

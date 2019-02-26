@@ -26,7 +26,7 @@ class MapItem: NSObject, MapAnnotationProvider {
     
     let identifier = "\(MKAnnotationView.self)"
     var title = "Item"
-    var selectedClosure: Closure = {}
+    var selectedClosure: Block = {}
     var latitude: Double = 0
     var longitude: Double = 0
     var coordinates: CLLocationCoordinate2D {

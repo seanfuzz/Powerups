@@ -25,8 +25,8 @@ import UIKit
     var cellIdentifier: String { return "CollectionCell" }
     
     var autoDeselct = true
-    var selectedAction: Closure?
-    var deselectedAction: Closure?
+    var selectedAction: Block?
+    var deselectedAction: Block?
     
     var collectionItem: CollectionItem { return self }
     var pickerElements: [String]?

@@ -15,7 +15,7 @@ extension UIButton {
     }
     
     @objc private func doTouchUp() { touchUp() }
-    var touchUp: Closure {
+    var touchUp: Block {
         get { return associated(closure: "touchUp") }
         set(a) {
             associatedObjects["touchUp"] = a
@@ -24,7 +24,7 @@ extension UIButton {
     }
     
     @objc private func doTouchDown() { touchDown() }
-    var touchDown: Closure {
+    var touchDown: Block {
         get { return associated(closure: "touchDown") }
         set(a) {
             associatedObjects["touchDown"] = a
