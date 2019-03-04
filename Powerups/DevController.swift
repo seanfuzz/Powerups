@@ -107,27 +107,13 @@ class DevController: Controller {
         button.setTitleColor(.black, for: .normal)
         button.borderColor = .black
         button.borderWidth = 1
+        
         s >> button.o_title
         
-        var count = 0
-        
-        button.o_touchUp.observe {
-            count += 1
-            s << "\(count)"
-            if count >= 10{                
-                button.o_touchUp.removeAllObservers()
-            }
-            print("tap \(count)")
-        }
         
         
         let i = O<Int>(0)
-
-        i.skip(3)
-        .map({ $0 - 3 })
-        .filter({ $0 % 2 != 0})
-        .skip(2)
-        .cache(3)
+        i.filter({ $0 % 3 == 0})
         .observe
         {
             print($0)

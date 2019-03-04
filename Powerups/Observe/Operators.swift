@@ -111,13 +111,15 @@ extension Observable
     
     func take(_ count:Int = 1) -> Observable<T>
     {
-        var index = 0
-        
+        var index = 0        
         return link("Take")
         { observable in
-            if index < count
+            if index <= count
             {
                 observable.broadcast()
+            }else
+            {
+                observable.close()
             }
             index = index + 1
         }

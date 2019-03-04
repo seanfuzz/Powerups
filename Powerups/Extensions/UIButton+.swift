@@ -6,18 +6,22 @@
 import Foundation
 import UIKit
 
+class Action
+{
+    var index:Int
+    var block:Block
+    
+    init(index:Int, block: @escaping Block)
+    {
+        self.index = index
+        self.block = block
+    }
+}
 
 
 
 extension UIButton
 {
-    
-    var title: String?
-    {
-        get { return titleLabel?.text }
-        set(t) { setTitle(t, for: .normal)}
-    }
-    
     /* __________________________________________
      
                 Touch Up and Down
@@ -26,48 +30,114 @@ extension UIButton
      there will only be one
      associated block for each
      __________________________________________*/
-    @objc private func doTouchUp() {
-//        touchUp()
-        if let r:[Block] = associatedValue("touchUp") {
-            r.forEach { (b) in
-                b()
-            }
-        }
+    @objc private func doTouchUp()
+    {
+        touchUpActions.forEach { $0.block() }
     }
     
-    var touchUp: Block
+    private var touchUpActions:[Action]
     {
-        get { return associatedValue("touchUp") ?? {} }
-        set(a)
+        get
         {
-            var responders = [Block]()
-            if let r:[Block] = associatedValue("touchUp") {
-                responders = r
-            }else {
+            if let actions:[Action] = associatedValue("touchUpActions")
+            {
+                return actions
+            }else
+            {
                 addTarget(self, action: #selector(doTouchUp), for: .touchUpInside)
+                let actions = [Action]()
+                associatedObjects["touchUpActions"] = actions
+                return actions
             }
-            responders.append(a)
-            associatedObjects["touchUp"] = responders
+        }
+        
+        set(a)
+        {
+            associatedObjects["touchUpActions"] = a
         }
     }
     
-    @objc private func doTouchDown() { touchDown() }
-    var touchDown: Block
+    @discardableResult
+    func touchUp( _ action: @escaping Block) -> Action
     {
-        get { return associatedValue("touchDown") ?? {} }
-        set(a)
+        let  a = Action(index: touchUpActions.count, block: action)
+        touchUpActions.append(a)
+        return a
+    }
+
+    func removeTouchUp(action:Action)
+    {
+        var actions = touchUpActions
+        if action.index < actions.count
         {
-            associatedObjects["touchDown"] = a
-            addTarget(self, action: #selector(doTouchDown), for: .touchUpInside)
+            actions.remove(at: action.index)
+            for i in 0..<actions.count
+            {
+                actions[i].index = i
+            }
+            touchUpActions = actions
         }
     }
     
 
+    @objc private func doTouchDown()
+    {
+        touchDownActions.forEach { $0.block() }
+    }
+    
+    private var touchDownActions:[Action]
+    {
+        get
+        {
+            if let actions:[Action] = associatedValue("touchDownActions")
+            {
+                return actions
+            }else
+            {
+                addTarget(self, action: #selector(doTouchDown), for: .touchDown)
+                let actions = [Action]()
+                associatedObjects["touchDownActions"] = actions
+                return actions
+            }
+        }
+        
+        set(a)
+        {
+            associatedObjects["touchDownActions"] = a
+        }
+    }
+    
+
+    
+    @discardableResult
+    func touchDown( _ action: @escaping Block) -> Action
+    {
+        let  a = Action(index: touchDownActions.count, block: action)
+        touchDownActions.append(a)
+        return a
+    }
+
+}
+
+//----------------------------------------
+
+
+
+
+//----------------------------------------
+extension UIButton
+{
+    var title: String?
+    {
+        get { return titleLabel?.text }
+        set(t) { setTitle(t, for: .normal)}
+    }
+    
     func setBackgroundColor(_ color: UIColor) {
         let image = UIImage(color: color, size: CGSize(width: 1, height: 1))
         setBackgroundImage(image, for: .normal)
     }
-
+    
     func solidBlueButton() {
         setBackgroundImage(nil, for: .normal)
         backgroundColor = .blinkWave
@@ -78,7 +148,7 @@ extension UIButton
         setTitleColor(.inputGray, for: .disabled)
         titleLabel?.font = .mediumBoldLight
     }
-
+    
     func outlineButton() {
         backgroundColor = .clear
         let image = UIImage(color: .blackHaze, size: CGSize(width: 1, height: 1))
@@ -91,7 +161,7 @@ extension UIButton
         setTitleColor(.inputGray, for: .disabled)
         titleLabel?.font = .mediumBoldBlue
     }
-
+    
     // New button
     func solidBlueButton2() {
         setBackgroundImage(nil, for: .normal)
@@ -103,7 +173,7 @@ extension UIButton
         setTitleColor(.inputGray, for: .disabled)
         titleLabel?.font = .buttonWhite
     }
-
+    
     // New button
     func whiteOutlineButton() {
         backgroundColor = .clear
@@ -115,7 +185,7 @@ extension UIButton
         setTitleColor(.white, for: .disabled)
         titleLabel?.font = .buttonBlue
     }
-
+    
     // New button
     func blueOutlineButton() {
         backgroundColor = .clear
@@ -127,7 +197,7 @@ extension UIButton
         setTitleColor(UIColor.wave, for: .disabled)
         titleLabel?.font = .buttonBlue
     }
-
+    
     func transparentButton() {
         backgroundColor = .clear
         layer.borderColor = .none
@@ -138,10 +208,11 @@ extension UIButton
         setTitleColor(.textDarkGray, for: .disabled)
         titleLabel?.font = .buttonBlue
     }
-
+    
     func roundButton(radius: CGFloat, image: UIImage) {
         backgroundColor = .wave
         cornerRadius = radius
         setImage(image, for: .normal)
     }
+    
 }

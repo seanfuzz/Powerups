@@ -13,57 +13,35 @@ extension UIButton
 {
     var o_title:O<String>
     {
-        return associatedObserver("otitle", titleLabel?.text ?? "")
+        return associatedObserver("o_title", titleLabel?.text ?? "")
         { [unowned self] in self.setTitle($0, for: .normal) }
     }
     
-    var o_touchUp:O<Void>
+    var o_touchUp:O<()>
     {
-        if associatedObjects["o_tap"] == nil
+        if associatedObjects["o_touchUp"] == nil
         {
-            self.touchUp =
+            self.touchUp 
             { [unowned self] in
-                self.o_touchUp << ()
+               self.o_touchUp << ()
             }
         }
         
-        return associatedObserver("o_tap", ())
-        { _ in }//self.setTitle($0, for: .normal) }
-
+        return associatedObserver("o_touchUp", ()){ _ in }
     }
-}
-
-//------------------------------------------------------------
-//------------------------------------------------------------
-/*
-extension UIButton
-{
-
-    struct UIButtonObservables
+    
+    
+    var o_touchDown:O<()>
     {
-        let title = O<String>("")
+        if associatedObjects["o_touchDown"] == nil
+        {
+            self.touchDown
+            { [unowned self] in
+                self.o_touchDown << ()
+            }
+        }
         
-        init(_ button:UIButton)
-        {
-            title << (button.title ?? "")
-        }
+        return associatedObserver("o_touchDown", ()){ _ in }
     }
-    
-    var obs: UIButtonObservables
-    {
-        return observables
-    }
-    
-    var observables: UIButtonObservables
-    {
-        if let o:UIButtonObservables = associatedValue("observables")
-        {
-            return o
-        }
-        let o = UIButtonObservables(self)
-        associatedObjects["observables"] = o
-        return o
-    }
-    
+
 }
- */
