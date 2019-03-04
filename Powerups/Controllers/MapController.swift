@@ -50,7 +50,7 @@ class MapItem: NSObject, MapAnnotationProvider {
 }
 
 
-class MapController: ViewController, MKMapViewDelegate {
+class MapController: Controller, MKMapViewDelegate {
     
     let mapView = MKMapView()
 

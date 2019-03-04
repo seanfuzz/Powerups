@@ -7,26 +7,56 @@ import Foundation
 import UIKit
 
 
-extension UIButton {
+
+
+extension UIButton
+{
     
-    var title: String? {
+    var title: String?
+    {
         get { return titleLabel?.text }
         set(t) { setTitle(t, for: .normal)}
     }
     
-    @objc private func doTouchUp() { touchUp() }
-    var touchUp: Block {
-        get { return associated(closure: "touchUp") }
-        set(a) {
-            associatedObjects["touchUp"] = a
-            addTarget(self, action: #selector(doTouchUp), for: .touchUpInside)
+    /* __________________________________________
+     
+                Touch Up and Down
+     
+     are not yet cancellable
+     there will only be one
+     associated block for each
+     __________________________________________*/
+    @objc private func doTouchUp() {
+//        touchUp()
+        if let r:[Block] = associatedValue("touchUp") {
+            r.forEach { (b) in
+                b()
+            }
+        }
+    }
+    
+    var touchUp: Block
+    {
+        get { return associatedValue("touchUp") ?? {} }
+        set(a)
+        {
+            var responders = [Block]()
+            if let r:[Block] = associatedValue("touchUp") {
+                responders = r
+            }else {
+                addTarget(self, action: #selector(doTouchUp), for: .touchUpInside)
+            }
+            responders.append(a)
+            associatedObjects["touchUp"] = responders
         }
     }
     
     @objc private func doTouchDown() { touchDown() }
-    var touchDown: Block {
-        get { return associated(closure: "touchDown") }
-        set(a) {
+    var touchDown: Block
+    {
+        get { return associatedValue("touchDown") ?? {} }
+        set(a)
+        {
             associatedObjects["touchDown"] = a
             addTarget(self, action: #selector(doTouchDown), for: .touchUpInside)
         }

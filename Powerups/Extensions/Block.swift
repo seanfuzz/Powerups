@@ -32,57 +32,7 @@ func delay(_ seconds: Double, closure:@escaping Block) {
 }
 
 
-/*________________________________________________________________________________
- 
- Apply a Classification Model to the image
- results return on the main thread
- ________________________________________________________________________________*/
-public typealias VNClassificationHandler = ([VNClassificationObservation], Error?) -> Void
-extension UIImage
-{
-    func classify(model:MLModel, completion: @escaping VNClassificationHandler)
-    {
-        do {
-            let model_ = try VNCoreMLModel(for: model)
-            classify(model: model_, completion:completion)
-        } catch {
-            fatalError("Failed to load Vision ML model: \(error)")
-        }
-    }
-    
-    func classify(model:VNCoreMLModel, completion: @escaping VNClassificationHandler)
-    {
-        
-        let request = VNCoreMLRequest(model: model){request, error in
-            DispatchQueue.main.async {
-                
-                if let classifications = request.results as? [VNClassificationObservation]{
-                    completion(classifications, error)
-                }else {
-                    completion([], error)
-                }
-            }
-        }
-        request.imageCropAndScaleOption = .centerCrop
-        
-        let orientation = CGImagePropertyOrientation(self.imageOrientation)
-        guard let ciImage = CIImage(image: self) else { fatalError("Unable to create \(CIImage.self) from \(self).") }
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
-            do {
-                try handler.perform([request])
-            } catch {
-                /*
-                 This handler catches general image processing errors. The `classificationRequest`'s
-                 completion handler `processClassifications(_:error:)` catches errors specific
-                 to processing that request.
-                 */
-                print("Failed to perform classification.\n\(error.localizedDescription)")
-            }
-        }
-    }
-}
+
 
 extension CGImagePropertyOrientation {
     /**
@@ -158,27 +108,3 @@ extension UIDeviceOrientation
 
 
 
-extension CGFloat
-{
-    func convertedToRadians() -> CGFloat
-    {
-        return CGFloat(Double(self) * Double.pi / 180.0)
-    }
-}
-
-
-extension UIViewController
-{
-    // MARK: Helper Methods for Error Presentation
-    func presentErrorAlert(withTitle title: String = "Unexpected Failure", message: String)
-    {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        self.present(alertController, animated: true)
-    }
-    
-    func presentError(_ error: NSError)
-    {
-        self.presentErrorAlert(withTitle: "Failed with error \(error.code)", message: error.localizedDescription)
-    }
-    
-}

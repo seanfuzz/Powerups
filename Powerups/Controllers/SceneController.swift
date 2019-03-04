@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class SceneController: ViewController {
+class SceneController: Controller {
 
     
 }

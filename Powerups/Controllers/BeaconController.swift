@@ -8,6 +8,6 @@
 
 import UIKit
 
-class BeaconController: ViewController {
+class BeaconController: Controller {
     
 }

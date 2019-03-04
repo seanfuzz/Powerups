@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 let sum = reduce(0) { (r, i)  in r + i }
 
 

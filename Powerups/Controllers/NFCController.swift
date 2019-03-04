@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NFCController: ViewController {
+class NFCController: Controller {
  
     
     // scan button

@@ -12,7 +12,8 @@ import UIKit
 
                     Collection Controller
 _______________________________________________________________*/
-class CollectionController: ViewController {
+class CollectionController: Controller
+{
     
     var collectionModel = CollectionModel()
     var collectionView:CollectionView?

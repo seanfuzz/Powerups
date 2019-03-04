@@ -9,6 +9,6 @@
 import UIKit
 import CloudKit
 
-class CloudkitController: ViewController {
+class CloudkitController: Controller {
     
 }

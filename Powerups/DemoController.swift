@@ -13,7 +13,7 @@ class DemoController: TableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        func addItem(title: String, controller:ViewController){
+        func addItem(title: String, controller:Controller){
             let item = add(tableItem: title)
             item.selectedAction = { [unowned self] in
                 controller.hidesBottomBarWhenPushed = true

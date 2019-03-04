@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DateController: ViewController {
+class DateController: Controller {
     
     var textView = UITextView()
     

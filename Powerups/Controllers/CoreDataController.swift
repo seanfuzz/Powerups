@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoreDataController: ViewController {
+class CoreDataController: Controller {
     
 }
 

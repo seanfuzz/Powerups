@@ -14,13 +14,15 @@ private var associatedObjectKey: UInt8 = 0
  
                 NSObject
  ____________________________________*/
-extension NSObject {
-    
-    func associated(closure:String) -> Block {
-        if let a = associatedObjects[closure] as? Block { return a }
-        return {}
+//Observable
+extension NSObject
+{
+
+    func associatedValue<T>(_ name: String) -> T? {
+        if let value = associatedObjects[name] as? T { return value }
+        return nil
     }
-    
+
     var associatedObjects: [String: Any] {
         get {
             if let objects = objc_getAssociatedObject(self, &associatedObjectKey) as? [String: Any] {

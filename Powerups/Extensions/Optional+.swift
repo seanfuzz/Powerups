@@ -4,7 +4,7 @@
 //
 
 import Foundation
-
+/*
 // MARK: - filter and unwrap -
 /// A type for describing Optionals, and thereby injecting their type into generic extensions.
 protocol OptionalType {
@@ -18,4 +18,4 @@ extension Optional: OptionalType {
         return self
     }
 }
-
+*/

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class BluetoothController: ViewController {
+class BluetoothController: Controller {
 
     // request permission
     // show nearby devices

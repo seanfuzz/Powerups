@@ -9,19 +9,215 @@
 import UIKit
 
 
-class DevController: ViewController {
+class DevController: Controller {
+
+    var bag = [O<Any>]()
+    
+    let printSum = sum >>> { print($0) }
+
+    func incrFirst<A>( _ pair: (Int, A)) -> (Int, A){
+        return (increment(pair.0), pair.1)
+    }
+    
+    //apply a function to the first element of a tuple
+    func first<A, B, C>(_ f: @escaping (A) -> C) -> ((A,B)) -> (C, B)
+    {
+        return { pair in (f(pair.0), pair.1) }
+    }
+    
+    //apply a function to the second element of a tuple
+    func second<A,B,C>(_ f: @escaping (B) -> C ) -> ((A, B)) -> (A, C)
+    {
+        return {pair in (pair.0, f(pair.1)) }
+    }
+    
+ 
+    
+    func composition()
+    {
+        let pair:(Int, String) = (42, "Swift")
+        //        print(incrFirst(pair))
+        
+        let p = pair
+            |> first(increment)
+            |> first(String.init)
+        print(p)
+        
+        let p2 = pair
+            |> first(increment)
+            |> first(String.init)
+            |> second { $0 + "!"}
+        print(p2)
+        
+        
+        let p3 = pair
+            |> first(increment)
+            |> first(String.init)
+            |> second { $0.uppercased()}
+        print(p3)
+        
+        //        let p4:(String, String) = pair
+        //            |> first(increment)
+        //            |> first(String.init)
+        //            |> second(zurry(flip(String.uppercased)))
+        //
+        //        print(p4)
+        
+        let test = (1) + (4)
+        //        print(test)
+        print(" ")
+        let f: ((Int,Int)) -> Int = { a in
+            print(a.0)
+            print(a.1)
+            return 0
+        }
+        
+        f((7,8))
+        /*
+         let f = flip(String.uppercased)
+         print(f)
+         print(String.uppercased)
+         */
+        //        zurry(f)
+        
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let printSum = sum >>> { print($0) }
+        let s = O<String>("button!")
         
-        printSum( [1,2,3] )
-        print_Sum([1,2,3])
+        view.o_isUserInteractionEnabled.observe(){ b in
+            
+        }
+        
+        let label = UILabel(frame: .zero)
+        view.addSubview(label)
+        label.pin(top: 100, width:120, height:64)
+        label.backgroundColor = .lightGray
+        s >> label.o_text
+
+        
+        let button = UIButton(type: .custom)
+        view.addSubview(button)
+        button.pin(width:120, height:64)
+        button.titleLabel?.text = "button"
+        button.setTitle("button", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.borderColor = .black
+        button.borderWidth = 1
+        s >> button.o_title
+        
+        var count = 0
+        
+        button.o_touchUp.observe {
+            count += 1
+            s << "\(count)"
+            if count >= 10{                
+                button.o_touchUp.removeAllObservers()
+            }
+            print("tap \(count)")
+        }
+        
+        
+        let i = O<Int>(0)
+
+        i.skip(3)
+        .map({ $0 - 3 })
+        .filter({ $0 % 2 != 0})
+        .skip(2)
+        .cache(3)
+        .observe
+        {
+            print($0)
+            s << "\($0)"
+            //button.setTitle("\($0)", for: .normal)
+
+        }
+        
+        
+       // i.filter({ $0 % 2 != 0}).observe { print($0) }
+        for n in 0..<32 {
+            i << n
+        }
+    }
+    func strings0()
+    {
+       let t = O<String>("0")//
+        
+        t.filter({ i in return true})
+        .observe{ v in
+            print(v)
+        }
+        
+        t << "A"
+    }
+    func strings1()
+    {
+        let t = O<String>("1")//
+        
+        t.replay(3)
+        .filter({ i in return true})
+        .observe{ v in
+            print(v)
+        }
+
+       t << "A"
     }
     
-    func print_Sum(_ things:[Int]) {
-        print(sum(things))
+    func strings2()
+    {
+        let t = O<String>("2")//
+        
+        t.filter({ i in return true})
+        .replay(3)
+        .observe{ v in
+            print(v)
+        }
+        
+       t << "A"
     }
+
+    func strings_()
+    {
+        
+        let thing = O<String>("Q")
+        thing.replay(3).filter({ v in
+            return v != "B"
+        }).observe()
+        { s in
+            print(": \(s)")
+        }
+
+//        thing.replay(3).observe(true)
+//        { s in
+//            print(": \(s)")
+//        }
+
+        thing << "A"
+        thing << "B"
+        thing << "C"
+    }
+    
+    func integers()
+    {
+        let thing = O<Int>(0)
+        thing.observe() { v in
+            print(v)
+        }
+        
+        
+        /*
+        let _ = thing.replay(3).observe(true)
+        { v in
+            
+            print("     \(v)")
+        }
+        thing << 2
+         */
+
+    }
+    
     
 }

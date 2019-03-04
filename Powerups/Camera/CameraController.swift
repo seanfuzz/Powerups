@@ -13,7 +13,7 @@ import Vision
  
  Camera  Controller
  ____________________________________________________________*/
-class CameraController: ViewController, CameraModelDelegate
+class CameraController: Controller, CameraModelDelegate
 {
     lazy var model: CameraModel = {
         createModel()

@@ -12,6 +12,8 @@ typealias Block         = () -> ()
 typealias Closure<In>   = (In) -> ()
 typealias Creator<Out>  = () -> (Out)
 typealias Fun<In,Out>   = (In) -> Out
+typealias Fun2<A,B,Out> = (A,B) -> Out
+
 typealias IO<Type>      = (inout Type) -> ()
 typealias Curry<A,B,C>  = (A) -> (B) -> C
 
@@ -34,7 +36,7 @@ func map<A, B>(_ f: @escaping Fun<A,B>) -> Fun<[A],[B]>
     return { $0.map(f) }
 }
 
-func reduce<A,B>(_ i:B, _ f: @escaping (B,A) -> B ) -> Fun<[A],B>
+func reduce<A,B>(_ i:B, _ f: @escaping Fun<(B,A),B>) -> Fun<[A],B>
 {
     return { $0.reduce(i, f) }
 }
@@ -143,9 +145,9 @@ func <> <A: Any>(f: @escaping Closure<A> , g: @escaping Closure<A> ) ->  Closure
 
 /*____________________________________
  
-                Curry
+            Curry (Decompose?)
  ____________________________________*/
-func curry<A, B, C>(_ f: @escaping (A,B) -> C ) -> Curry<A,B,C>
+func curry<A, B, C>(_ f: @escaping Fun2<A,B,C> ) -> Curry<A,B,C>
 {
     return { a in { b in f(a, b) } }
 }

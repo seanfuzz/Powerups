@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SpriteController: ViewController {
+class SpriteController: Controller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
