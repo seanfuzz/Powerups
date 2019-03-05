@@ -7,11 +7,15 @@
 //
 
 import UIKit
-
+class Student
+{
+    let score = O<Int>(0)
+}
 
 class DevController: Controller {
 
-    var bag = [O<Any>]()
+    var bag:O<Int>? = nil
+
     
     let printSum = sum >>> { print($0) }
 
@@ -86,11 +90,14 @@ class DevController: Controller {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let s = O<String>("button!")
+        let s = O<String>("")
+        s << "button!"
+        s.close()
         
-        view.o_isUserInteractionEnabled.observe(){ b in
-            
-        }
+        s << "?"
+        s << "1"
+        
+        view.o_isUserInteractionEnabled.observe(){ b in }
         
         let label = UILabel(frame: .zero)
         view.addSubview(label)
@@ -111,23 +118,26 @@ class DevController: Controller {
         s >> button.o_title
         
         
-        
-        let i = O<Int>(0)
-        i.filter({ $0 % 3 == 0})
-        .observe
-        {
-            print($0)
-            s << "\($0)"
-            //button.setTitle("\($0)", for: .normal)
+        let ryan = Student()
+        ryan.score << 80
+        let charlotte = Student()
+        charlotte.score << 95
+        let student = O<Student>(ryan)
 
+        student.flatmap( {
+            return $0.score
+        }).observe {
+            print($0)
         }
         
+        student << ryan
+        ryan.score << 65
+
+        student << charlotte
+        ryan.score << 64
         
-       // i.filter({ $0 % 2 != 0}).observe { print($0) }
-        for n in 0..<32 {
-            i << n
-        }
     }
+    
     func strings0()
     {
        let t = O<String>("0")//

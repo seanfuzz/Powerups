@@ -19,7 +19,8 @@ _____________________________________________*/
 typealias O = Observable
 class Observable<T>
 {
-    private var observers = [Observer<T>]()
+    //private
+    var observers = [Observer<T>]()
     internal var finished: Bool = false
 
     var name = "Observable"

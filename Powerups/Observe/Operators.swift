@@ -14,14 +14,8 @@ infix operator ++ //combine
 //infix operator + //add
 
 // buffer
-// filter
-// skip
-// take
 // replay
 // interval
-// throttle
-// flatMap
-// distinctUntil
 // combineLatest
 // scan
 // zip
@@ -32,13 +26,13 @@ infix operator ++ //combine
 // forkJoin
 // pairwise
 // switchMap
-// debounce
 
 // Unneecessary Operators ?
 // just
 // from
 // startWith
 // window
+// debounce 
 
 // Excessive features?
 // Scheduler
@@ -60,13 +54,19 @@ extension Observable
     //bind
     static func >> (left: O<T>, right: O<T>)
     {
-        right.value = left.value
-        left.observe { v in
-            right.value = v
-        }
+        right.value = left.value            // sets the current value
+        left.observe { right.value = $0 }   // sets future values
     }
     
-    // Create a new Observabel that is bound to the current instance
+}
+/*________________________
+ 
+        Link
+________________________*/
+extension Observable
+{
+    // Create a new Observable that is bound to the current instance
+    // use this to chain operators of the same type
     func link(_ name: String = "Link", _ closure: @escaping (O<T>)->Void) -> Observable<T>
     {
         let o = Observable<T>(value)
@@ -76,25 +76,26 @@ extension Observable
         return o
     }
     
-    //TODO
-    func reduce<A, R>(_ seed: A, accumulator: @escaping (A, T)  -> A, mapResult: @escaping (A)  -> R ) -> Observable<T>
+
+    // Can this be expressed as a filter?
+    func throttle(_ duration: Double = 1.0) -> Observable<T>
     {
-        return link("Reduce")
+
+        var time = Date()
+        return link("Throttle")
         {
-            $0.broadcast()
+            let now = Date()
+            if now.timeIntervalSince(time) > duration
+            {
+                time = now
+                $0.broadcast()
+            }
         }
+        
+        
     }
-    
-    
-    func map(_ f: @escaping Fun<T,T>) -> Observable<T>
-    {
-        return link("Map")
-        { obs in
-            obs.broadcast( f(obs.value) )
-        }
-    }
-    
-    
+
+    //can this be exrepsesed as a filter
     func skip(_ count:Int = 1) -> Observable<T>
     {
         var index = 0
@@ -109,12 +110,13 @@ extension Observable
         }
     }
     
+    //can this be expressed as a filter
     func take(_ count:Int = 1) -> Observable<T>
     {
-        var index = 0        
+        var index = 0
         return link("Take")
         { observable in
-            if index <= count
+            if index < count
             {
                 observable.broadcast()
             }else
@@ -137,6 +139,7 @@ extension Observable
         }
     }
     
+    //this is repeat
     func replay(_ times:Int = 1) -> Observable<T>
     {
         return link("Replay")
@@ -145,28 +148,95 @@ extension Observable
         }
     }
     
-    // Why is this one different?
-    // Beacuse we are changing the type
-    // You cant bind in this case
+    
+    
+}
+
+/*_____________________________________________
+ 
+                Transform
+ _____________________________________________*/
+extension Observable
+{
+    //    func transform<U>(_ name: String = "Transform", _ f: @escaping (T)->U) -> Observable<U>
+    //    {
+    //        let o = O<U>(f(value))
+    //        o.name = name
+    //        observe{
+    //            o << f($0)
+    //        }
+    //        return o
+    //    }
+    
+    // Is this a transform?
     func cache(_ max:Int? = 1) -> Observable<[T]>
     {
         let cachingObserver =  Observable<[T]>([value])
         cachingObserver.name = "Cache"
         observe
-            { v in
-                var values = cachingObserver.value
-                values.append(v)
-                if let max = max, max < values.count
-                {
-                    values.remove(at: 0)
-                }
-                cachingObserver.value = values
+        {
+            var values = cachingObserver.value
+            values.append($0)
+            if let max = max, max < values.count
+            {
+                values.remove(at: 0)
+            }
+            cachingObserver.value = values
         }
         
         return cachingObserver
     }
+
+    func map<U>(_ f: @escaping Fun<T,U>) -> Observable<U>
+    {
+        let initial = f(value)
+        let out = Observable<U>(initial)
+        out.name = "Map"
+        observe{ out << f($0) }
+        return out
+    }
     
+    func flatmap<U>(_ f: @escaping Fun<T,O<U>>) -> Observable<U>
+    {
+        let initial = f(value).value
+        let out = Observable<U>(initial)
+        out.name = "Flatmap"
+        observe{ f($0) >> out }
+        return out
+    }
     
+    //TODO
+    func reduce<A, R>(_ seed: A, accumulator: @escaping (A, T)  -> A, mapResult: @escaping (A)  -> R ) -> Observable<T>
+    {
+        return link("Reduce")
+        {
+            $0.broadcast()
+        }
+    }
 }
 
+/*_____________________________________________
+ 
+_____________________________________________*/
+extension Observable where T: Equatable
+{
+    func distinct() ->  Observable<T>
+    {
+        var prev:T? = nil
+        return link("Distinct Until")
+        {
+            if let p = prev
+            {
+                if p != $0.value
+                {
+                    $0.broadcast()
+                }
+            }else
+            {
+                $0.broadcast()
+            }
+            prev = $0.value
+        }
+    }
+}
 

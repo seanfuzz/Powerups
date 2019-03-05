@@ -11,6 +11,34 @@ import UIKit
 
 extension UIButton
 {
+    /*
+    class UIButtonObservables
+    {
+        var button:UIButton
+        
+        var title:O<String>
+        {
+            return button.o_title
+        }
+        
+        var touchUp:O<()>
+        {
+            return button.touchUp
+        }
+        
+        var touchDown:O<()>
+        {
+            return button.touchDown
+        }
+        
+        init(b:UIButton)
+        {
+            button = b
+        }
+
+    }
+    */
+    
     var o_title:O<String>
     {
         return associatedObserver("o_title", titleLabel?.text ?? "")
