@@ -8,7 +8,9 @@
 
 import Foundation
 
+
 typealias Block         = () -> ()
+
 typealias Closure<In>   = (In) -> ()
 typealias Creator<Out>  = () -> (Out)
 typealias Fun<In,Out>   = (In) -> Out

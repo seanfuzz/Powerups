@@ -8,9 +8,7 @@
 
 import Foundation
 
-infix operator << //assign
-infix operator >> //bind
-infix operator ++ //combine
+
 //infix operator + //add
 
 // buffer
@@ -36,27 +34,92 @@ infix operator ++ //combine
 
 // Excessive features?
 // Scheduler
+infix operator << //assign
+infix operator >> //bind
+infix operator ++ //combine
+
+infix operator ->> //broadcast
+infix operator <-> //Entangle
+
+postfix operator ->> //broadcast
+
+prefix operator ~ //as observable
+//prefix operator • //as observable
+//prefix operator ∆
+//¡ ™ £ ¢ ∞ § ¶ •• ª º // Option number combos
+extension String
+{
+    static prefix func ~ (o:String) -> O<String> { return o.observable }
+    var observable: O<String> { return O<String>(self) }
+}
+extension Int
+{
+    static prefix func ~ (o:Int) -> O<Int> { return o.observable }
+    var observable:O<Int> { return O<Int>(self) }
+}
+extension Double
+{
+    static prefix func ~ (o:Double) -> O<Double> { return o.observable }
+    var observable:O<Double> { return O<Double>(self) }
+}
+extension Float
+{
+    static prefix func ~ (o:Float) -> O<Float> { return o.observable }
+    var observable:O<Float> { return O<Float>(self) }
+}
+extension Array
+{
+    static prefix func ~ (o:Array) -> O<Array> { return o.observable }
+    var observable:O<Array> { return O<Array>(self) }
+}
+extension Dictionary
+{
+    static prefix func ~ (o:Dictionary) -> O<Dictionary> { return o.observable }
+    var observable:O<Dictionary> { return O<Dictionary>(self) }
+}
+
+
+
 
 extension Observable
 {
-    //assign
-    static func << (left: O<T>, right: T)
+    static postfix func ->> (o:O<T>) { o.broadcast(o.value) }
+
+    static func ->> (left: O<T>, right: T)
     {
-        left.value = right
+        left.broadcast(right)        
     }
-    
-    //push
-    static func << (left: O<T>, right: O<T>)
-    {
-        left.value = right.value
-    }
+
+//    //assign
+//    static func << (left: O<T>, right: T)
+//    {
+//        left.value = right
+//    }
+//
+//    //push
+//    static func << (left: O<T>, right: O<T>)
+//    {
+//        left.value = right.value
+//    }
     
     //bind
-    static func >> (left: O<T>, right: O<T>)
+    @discardableResult
+    static func >> (left: O<T>, right: O<T>) -> O<T>
     {
         right.value = left.value            // sets the current value
         left.observe { right.value = $0 }   // sets future values
+        return right
     }
+    
+    //entangle
+    static func <-> (left: O<T>, right: O<T>)
+    {
+        // This should infinite loop
+        // Can we write this another way?
+        // left >> right
+        // right >> left
+    }
+
     
 }
 /*________________________
@@ -67,20 +130,15 @@ extension Observable
 {
     // Create a new Observable that is bound to the current instance
     // use this to chain operators of the same type
-    func link(_ name: String = "Link", _ closure: @escaping (O<T>)->Void) -> Observable<T>
+    func link(_ name: String = "Link", _ closure: @escaping (O<T>, T) -> Void) -> O<T>
     {
-        let o = Observable<T>(value)
-        o.name = name
-        o.publish = closure
-        self >> o
-        return o
+        return self >> O<T>(value, name, closure)
     }
     
 
     // Can this be expressed as a filter?
-    func throttle(_ duration: Double = 1.0) -> Observable<T>
+    func throttle(_ duration: Double = 1.0) -> O<T>
     {
-
         var time = Date()
         return link("Throttle")
         {
@@ -88,63 +146,62 @@ extension Observable
             if now.timeIntervalSince(time) > duration
             {
                 time = now
-                $0.broadcast()
+                $0.broadcast($1)
             }
         }
-        
         
     }
 
     //can this be exrepsesed as a filter
-    func skip(_ count:Int = 1) -> Observable<T>
+    func skip(_ count:Int = 1) -> O<T>
     {
         var index = 0
         
         return link("Skip")
-        { observable in
+        {
             if index > count
             {
-                observable.broadcast()
+                $0.broadcast($1)
             }
             index = index + 1
         }
     }
     
     //can this be expressed as a filter
-    func take(_ count:Int = 1) -> Observable<T>
+    func take(_ count:Int = 1) -> O<T>
     {
         var index = 0
         return link("Take")
-        { observable in
+        {
             if index < count
             {
-                observable.broadcast()
+                $0.broadcast($1)
             }else
             {
-                observable.close()
+                $0.close()
             }
             index = index + 1
         }
     }
     
     
-    func filter(_ f: @escaping Fun<T,Bool>) -> Observable<T>
+    func filter(_ f: @escaping Fun<T,Bool>) -> O<T>
     {
         return link("Filtered")
-        { obs in
-            if f(obs.value)
+        {
+            if f($1)
             {
-                obs.broadcast()
+                $0 ->> $1
             }
         }
     }
     
     //this is repeat
-    func replay(_ times:Int = 1) -> Observable<T>
+    func replay(_ times:Int = 1) -> O<T>
     {
         return link("Replay")
-        { obs in
-            for _ in 0..<times { obs.broadcast() }
+        {
+            for _ in 0..<times { $0.broadcast($1) }
         }
     }
     
@@ -204,14 +261,27 @@ extension Observable
         observe{ f($0) >> out }
         return out
     }
+//    public func scan<A>(into seed: A, accumulator: @escaping (inout A, E) throws -> ())
+//        -> Observable<A> {
+//            return Scan(source: self.asObservable(), seed: seed, accumulator: accumulator)
+//    }
+
+    
+//    public func reduce<A, R>(_ seed: A, accumulator: @escaping (A, E) throws -> A, mapResult: @escaping (A) throws -> R)
+//        -> Observable<R> {
+//            return Reduce(source: self.asObservable(), seed: seed, accumulator: accumulator, mapResult: mapResult)
+//    }
     
     //TODO
-    func reduce<A, R>(_ seed: A, accumulator: @escaping (A, T)  -> A, mapResult: @escaping (A)  -> R ) -> Observable<T>
+    func reduce<A, R>(_ seed: A, accumulator: @escaping (A, T)  -> A, mapResult: @escaping (A)  -> R ) -> Observable<R>
     {
-        return link("Reduce")
-        {
-            $0.broadcast()
+        var total = accumulator(seed, value)
+        let out = O<R>(mapResult(total))
+        observe(){
+            total = accumulator(total, $0)
+            out << mapResult(total)
         }
+        return out
     }
 }
 
@@ -225,17 +295,21 @@ extension Observable where T: Equatable
         var prev:T? = nil
         return link("Distinct Until")
         {
+            /*
             if let p = prev
             {
-                if p != $0.value
+                if p != $1
                 {
-                    $0.broadcast()
+                    $0.broadcast($1)
                 }
             }else
             {
-                $0.broadcast()
+                $0.broadcast($1)
+            }*/
+            if prev != $1 {
+                $0.broadcast($1)
             }
-            prev = $0.value
+            prev = $1
         }
     }
 }

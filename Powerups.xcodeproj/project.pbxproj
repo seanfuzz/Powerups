@@ -20,15 +20,17 @@
 		8584D861222D90BC00ED1472 /* UILabel+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584D860222D90BC00ED1472 /* UILabel+Observe.swift */; };
 		8584D863222D912400ED1472 /* UIView+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584D862222D912400ED1472 /* UIView+Observe.swift */; };
 		8584D865222DAE7600ED1472 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584D864222DAE7600ED1472 /* Operators.swift */; };
-		8584D867222DAF5E00ED1472 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584D866222DAF5E00ED1472 /* Observer.swift */; };
+		8584D867222DAF5E00ED1472 /* _Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584D866222DAF5E00ED1472 /* _Observer.swift */; };
 		858A1F9921BB3ED7009C74E5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9421BB3ED7009C74E5 /* CameraView.swift */; };
 		858A1F9A21BB3ED7009C74E5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9521BB3ED7009C74E5 /* CameraController.swift */; };
 		858A1F9B21BB3ED7009C74E5 /* SelfieCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */; };
 		858A1F9C21BB3ED7009C74E5 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9721BB3ED7009C74E5 /* CameraModel.swift */; };
 		858A1F9D21BB3ED7009C74E5 /* SelfieCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */; };
+		859D0F2822321DBB00419C95 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D0F2722321DBB00419C95 /* Observable.swift */; };
+		859D0F2A22321DC600419C95 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859D0F2922321DC600419C95 /* Observer.swift */; };
 		85BFEB1E2225A08700466049 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB1D2225A08700466049 /* Functional.swift */; };
 		85BFEB202225A0AE00466049 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB1F2225A0AE00466049 /* Functions.swift */; };
-		85BFEB222225A0B600466049 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB212225A0B600466049 /* Observable.swift */; };
+		85BFEB222225A0B600466049 /* _Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB212225A0B600466049 /* _Observable.swift */; };
 		85BFEB242225A2E800466049 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB232225A2E800466049 /* Controller.swift */; };
 		85BFEB262225A38100466049 /* DevController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BFEB252225A38100466049 /* DevController.swift */; };
 		85BFEB282225A3EE00466049 /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BFEB272225A3EE00466049 /* Dev.storyboard */; };
@@ -82,6 +84,8 @@
 		85E91F5D21BB32480064DA5B /* TableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91F5721BB32480064DA5B /* TableItem.swift */; };
 		85E91F5E21BB32480064DA5B /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91F5821BB32480064DA5B /* TableModel.swift */; };
 		85E91F5F21BB32480064DA5B /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E91F5921BB32480064DA5B /* TableController.swift */; };
+		85F73A6722318E6900F02996 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F73A6622318E6900F02996 /* Channel.swift */; };
+		85F73A692231900900F02996 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F73A682231900900F02996 /* Listener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,16 +104,18 @@
 		8584D860222D90BC00ED1472 /* UILabel+Observe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Observe.swift"; sourceTree = "<group>"; };
 		8584D862222D912400ED1472 /* UIView+Observe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Observe.swift"; sourceTree = "<group>"; };
 		8584D864222DAE7600ED1472 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		8584D866222DAF5E00ED1472 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		8584D866222DAF5E00ED1472 /* _Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Observer.swift; sourceTree = "<group>"; };
 		858A1F9421BB3ED7009C74E5 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		858A1F9521BB3ED7009C74E5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		858A1F9621BB3ED7009C74E5 /* SelfieCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraController.swift; sourceTree = "<group>"; };
 		858A1F9721BB3ED7009C74E5 /* CameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		858A1F9821BB3ED7009C74E5 /* SelfieCameraModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCameraModel.swift; sourceTree = "<group>"; };
 		858A1F9F21BD7EB7009C74E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		859D0F2722321DBB00419C95 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		859D0F2922321DC600419C95 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		85BFEB1D2225A08700466049 /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		85BFEB1F2225A0AE00466049 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		85BFEB212225A0B600466049 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		85BFEB212225A0B600466049 /* _Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Observable.swift; sourceTree = "<group>"; };
 		85BFEB232225A2E800466049 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		85BFEB252225A38100466049 /* DevController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevController.swift; sourceTree = "<group>"; };
 		85BFEB272225A3EE00466049 /* Dev.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dev.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 		85E91F5721BB32480064DA5B /* TableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableItem.swift; sourceTree = "<group>"; };
 		85E91F5821BB32480064DA5B /* TableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
 		85E91F5921BB32480064DA5B /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		85F73A6622318E6900F02996 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		85F73A682231900900F02996 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,9 +260,13 @@
 			isa = PBXGroup;
 			children = (
 				8584D85B222D900500ED1472 /* Extensions */,
-				85BFEB212225A0B600466049 /* Observable.swift */,
-				8584D866222DAF5E00ED1472 /* Observer.swift */,
+				85BFEB212225A0B600466049 /* _Observable.swift */,
+				8584D866222DAF5E00ED1472 /* _Observer.swift */,
 				8584D864222DAE7600ED1472 /* Operators.swift */,
+				85F73A6622318E6900F02996 /* Channel.swift */,
+				85F73A682231900900F02996 /* Listener.swift */,
+				859D0F2722321DBB00419C95 /* Observable.swift */,
+				859D0F2922321DC600419C95 /* Observer.swift */,
 			);
 			path = Observe;
 			sourceTree = "<group>";
@@ -460,6 +472,7 @@
 				85E91F4121BB32290064DA5B /* UITableViewCell.swift in Sources */,
 				858A1F9B21BB3ED7009C74E5 /* SelfieCameraController.swift in Sources */,
 				85E91F5F21BB32480064DA5B /* TableController.swift in Sources */,
+				859D0F2A22321DC600419C95 /* Observer.swift in Sources */,
 				85E91F5121BB32360064DA5B /* UIView+Pin.swift in Sources */,
 				85E91F3E21BB32290064DA5B /* UIViewController+.swift in Sources */,
 				8558297E21BB30730032B8A4 /* AppDelegate.swift in Sources */,
@@ -474,7 +487,9 @@
 				85E91F3D21BB32290064DA5B /* UIView+.swift in Sources */,
 				85BFEB1E2225A08700466049 /* Functional.swift in Sources */,
 				8584D863222D912400ED1472 /* UIView+Observe.swift in Sources */,
+				859D0F2822321DBB00419C95 /* Observable.swift in Sources */,
 				85E91F2121BB32290064DA5B /* DemoController.swift in Sources */,
+				85F73A692231900900F02996 /* Listener.swift in Sources */,
 				85E91F4721BB32290064DA5B /* Date+.swift in Sources */,
 				85E91F2C21BB32290064DA5B /* CollectionView.swift in Sources */,
 				8558298621BB30730032B8A4 /* Powerups.xcdatamodeld in Sources */,
@@ -482,7 +497,7 @@
 				8584D85F222D908E00ED1472 /* NSObject+Observe.swift in Sources */,
 				85E91F2E21BB32290064DA5B /* CollectionItem.swift in Sources */,
 				858A1F9D21BB3ED7009C74E5 /* SelfieCameraModel.swift in Sources */,
-				85BFEB222225A0B600466049 /* Observable.swift in Sources */,
+				85BFEB222225A0B600466049 /* _Observable.swift in Sources */,
 				85E91F5021BB32360064DA5B /* PinPoint.swift in Sources */,
 				85E91F3C21BB32290064DA5B /* CLLocationManager+.swift in Sources */,
 				85E91F3621BB32290064DA5B /* CLProximity+.swift in Sources */,
@@ -492,7 +507,7 @@
 				85E91F5A21BB32480064DA5B /* TableView.swift in Sources */,
 				85BFEB242225A2E800466049 /* Controller.swift in Sources */,
 				85E91F4821BB32290064DA5B /* UIImage+.swift in Sources */,
-				8584D867222DAF5E00ED1472 /* Observer.swift in Sources */,
+				8584D867222DAF5E00ED1472 /* _Observer.swift in Sources */,
 				85E91F2621BB32290064DA5B /* BeaconController.swift in Sources */,
 				85E91F2721BB32290064DA5B /* BluetoothController.swift in Sources */,
 				85E91F3421BB32290064DA5B /* MKMapView.swift in Sources */,
@@ -505,6 +520,7 @@
 				858A1F9921BB3ED7009C74E5 /* CameraView.swift in Sources */,
 				85E91F3921BB32290064DA5B /* UIFont+.swift in Sources */,
 				85E91F4C21BB32290064DA5B /* UIColor+.swift in Sources */,
+				85F73A6722318E6900F02996 /* Channel.swift in Sources */,
 				85E91F4921BB32290064DA5B /* UITableView+.swift in Sources */,
 				8584D861222D90BC00ED1472 /* UILabel+Observe.swift in Sources */,
 				85E91F3121BB32290064DA5B /* UICollectionViewCell+.swift in Sources */,

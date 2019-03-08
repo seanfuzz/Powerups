@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class Student
 {
     let score = O<Int>(0)
@@ -67,16 +68,16 @@ class DevController: Controller {
         //
         //        print(p4)
         
-        let test = (1) + (4)
-        //        print(test)
-        print(" ")
-        let f: ((Int,Int)) -> Int = { a in
-            print(a.0)
-            print(a.1)
-            return 0
-        }
+//        let test = (1) + (4)
+//        //        print(test)
+//        print(" ")
+//        let f: ((Int,Int)) -> Int = { a in
+//            print(a.0)
+//            print(a.1)
+//            return 0
+//        }
         
-        f((7,8))
+       // f((7,8))
         /*
          let f = flip(String.uppercased)
          print(f)
@@ -90,12 +91,9 @@ class DevController: Controller {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let s = O<String>("")
-        s << "button!"
-        s.close()
-        
-        s << "?"
-        s << "1"
+        let message = ~"Hello World"
+
+        message << "button!"
         
         view.o_isUserInteractionEnabled.observe(){ b in }
         
@@ -103,7 +101,7 @@ class DevController: Controller {
         view.addSubview(label)
         label.pin(top: 100, width:120, height:64)
         label.backgroundColor = .lightGray
-        s >> label.o_text
+        message >> label.o_text
 
         
         let button = UIButton(type: .custom)
@@ -115,26 +113,45 @@ class DevController: Controller {
         button.borderColor = .black
         button.borderWidth = 1
         
-        s >> button.o_title
+        message >> button.o_title
         
         
-        let ryan = Student()
-        ryan.score << 80
-        let charlotte = Student()
-        charlotte.score << 95
-        let student = O<Student>(ryan)
+//        let m = ~[1,2,3]
+//
+//        m.output =
+//        {
+//            $0->>
+//        }
 
-        student.flatmap( {
-            return $0.score
-        }).observe {
+        let c = Channel<Int>()
+        c.listen
+        {
             print($0)
         }
         
-        student << ryan
-        ryan.score << 65
-
-        student << charlotte
-        ryan.score << 64
+        c.output =
+        {
+            $0.broadcast($1)
+        }
+        
+        c << 1
+        c << 2
+        c << 3
+        
+        
+        let r = Observable<Int>(4)
+        
+        r << 8
+        r << 9
+        
+        r.observe
+        {
+            print($0)
+        }
+        
+        r << 4
+        r << 5
+        r << 6
         
     }
     
