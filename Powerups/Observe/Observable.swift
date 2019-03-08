@@ -1,54 +1,135 @@
 //
-//  Observable.swift
-//  Powerups
+//  OInt.swift
+//  Galileo
 //
-//  Created by Sean Orelli on 3/7/19.
+//  Created by Sean Orelli on 2/23/19.
 //  Copyright © 2019 Sean Orelli. All rights reserved.
 //
 
 import Foundation
 
 
-/*________________________
+/*_____________________________________________
  
+                Observable
+ 
+ Does this work with observing optional types?
+ can we change value to be a computed property
+ on
+ // Support for cold observables
+ Temp is both temperature and tempo
+ This represents the hot / cold paradigm
+ but also works as a throttle
+ hot == 0.0 , cold == Infinity
+ 1.0 == 1 second throttle
 
- ________________________*/
-class Observable<T>: Channel<T>
+ infinite? cant close observabl;e
+_____________________________________________*/
+typealias O = Observable
+
+
+
+class Observable<T>
 {
-    init(_ value:T, _ name:String? = nil, _ output:((O<T>, T) -> Void)? = nil)
-    {
-        self.value = value
-    }
+
+    typealias ObservableOutput = (Observable<T>) -> ()
+    
+    var name = "Observable"
+    
+    var observers = [Observer<T>]()
     
     var value:T { didSet { output(self, value) } }
     
-    @discardableResult
-    func observe(update: Closure<T>? = nil) -> Observable<T>
+    var output: ((O<T>, T)->()) = { $0 ->> $1 }
+    
+    var finished: Bool = false
+    
+    init(_ val:T, _ name:String? = nil, _ output:((O<T>, T)->Void)? = nil)
     {
-        return Observable<T>(value)
+        value = val
+        if let n = name { self.name = n }
+        if let p = output { self.output = p }
     }
     
-    func observe(start:Closure<T>? = { s in }, update: Closure<T>? = nil, complete: Closure<Error?>? = nil) -> Observer<T>?
+    deinit { close() }
+    
+    @discardableResult
+    func observe(_ update: Closure<T>? = nil) -> Observer<T>?
+    {
+        return observe(start:nil, update: update, end:nil)
+    }
+    @discardableResult
+    func observe(start: Closure<T>? = nil,
+                 update: Closure<T>? = nil,
+                 end: Closure<Error?>? = nil) -> Observer<T>?
     {
         guard !finished else { return nil }
         
-        let observer = Observer(channel: self,
-                                index: listeners.count,
+        let observer = Observer(observable: self,
+                                index: observers.count,
+                                start: start,
                                 update: update,
-                                complete: complete )
+                                end: end )
         
-        listeners.append(observer)
+        observers.append(observer)
+        
+        observer.start?(value)
         
         return observer
-        
     }
     
-    static func << (left: Observable<T>, right: T)
+    func broadcast(_ val:T? = nil)
     {
-        left.value = right
+        guard !finished else { return }
+        let v = val ?? value
+        observers.forEach{ $0.update?(v) }
     }
-    static func << (left: Observable<T>, right: Observable<T>)
+    
+    func close(_ error:Error? = nil)
     {
-        left.value = right.value
+        // Should these be in the same loop?
+        // Seems more predicatble if we
+        // deallocate after completing
+        // and mark finished inbetween
+        observers.forEach{ $0.end?(error) }
+        finished = true
+        observers.forEach{ remove(observer: $0) }
     }
+    
+
+    func removeAllObservers()
+    {
+        let tmp = observers
+        tmp.forEach { remove(observer: $0)}
+    }
+    
+    func remove(observer: Observer<T>)
+    {
+        _ = observers.remove(at: observer.index)
+        for i in 0..<observers.count
+        {
+            observers[i].index = i
+        }
+    }
+ 
+    
+    /*
+     var tempo = 0.0
+     var lasttime: Date? = nil
+     
+     func freeze()
+     {
+     tempo = Double.infinity
+     observers.forEach{ $0.pause?(value) }
+     }
+     
+     func thaw(_ t:Double = 0.0)
+     {
+     tempo = t
+     observers.forEach{ $0.resume?(value) }
+     }*/
+
 }
+
+
+

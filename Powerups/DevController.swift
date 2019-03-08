@@ -124,14 +124,17 @@ class DevController: Controller {
 //        }
 
         let c = Channel<Int>()
-        c.listen
+        c.map ({
+            $0 * 3
+        })
+        .listen
         {
             print($0)
         }
         
         c.output =
         {
-            $0.broadcast($1)
+            $0 ->> $1
         }
         
         c << 1
@@ -144,9 +147,15 @@ class DevController: Controller {
         r << 8
         r << 9
         
-        r.observe
+        r
+        .map({ $0 * 3 })
+        .filter({ $0 % 2 == 0 })
+        .observe
         {
             print($0)
+        }
+        r.output = {
+            $0 ->> $1
         }
         
         r << 4

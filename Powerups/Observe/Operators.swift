@@ -34,75 +34,33 @@ import Foundation
 
 // Excessive features?
 // Scheduler
-infix operator << //assign
-infix operator >> //bind
-infix operator ++ //combine
+//infix   operator <<  // assign
+//infix   operator >>  // bind
+//infix   operator ++  // combine
+//prefix  operator ~   // as observable
 
-infix operator ->> //broadcast
-infix operator <-> //Entangle
-
-postfix operator ->> //broadcast
-
-prefix operator ~ //as observable
-//prefix operator • //as observable
-//prefix operator ∆
-//¡ ™ £ ¢ ∞ § ¶ •• ª º // Option number combos
-extension String
-{
-    static prefix func ~ (o:String) -> O<String> { return o.observable }
-    var observable: O<String> { return O<String>(self) }
-}
-extension Int
-{
-    static prefix func ~ (o:Int) -> O<Int> { return o.observable }
-    var observable:O<Int> { return O<Int>(self) }
-}
-extension Double
-{
-    static prefix func ~ (o:Double) -> O<Double> { return o.observable }
-    var observable:O<Double> { return O<Double>(self) }
-}
-extension Float
-{
-    static prefix func ~ (o:Float) -> O<Float> { return o.observable }
-    var observable:O<Float> { return O<Float>(self) }
-}
-extension Array
-{
-    static prefix func ~ (o:Array) -> O<Array> { return o.observable }
-    var observable:O<Array> { return O<Array>(self) }
-}
-extension Dictionary
-{
-    static prefix func ~ (o:Dictionary) -> O<Dictionary> { return o.observable }
-    var observable:O<Dictionary> { return O<Dictionary>(self) }
-}
-
-
-
+infix   operator ->> // broadcast
+postfix operator ->> // broadcast
+infix   operator <-> // Entangle
 
 extension Observable
 {
+    static func << (left: O<T>, right: T)
+    {
+        left.value = right
+    }
+    static func << (left: O<T>, right: O<T>)
+    {
+        left.value = right.value
+    }
+    
     static postfix func ->> (o:O<T>) { o.broadcast(o.value) }
-
+    
     static func ->> (left: O<T>, right: T)
     {
-        left.broadcast(right)        
+        left.broadcast(right)
     }
-
-//    //assign
-//    static func << (left: O<T>, right: T)
-//    {
-//        left.value = right
-//    }
-//
-//    //push
-//    static func << (left: O<T>, right: O<T>)
-//    {
-//        left.value = right.value
-//    }
     
-    //bind
     @discardableResult
     static func >> (left: O<T>, right: O<T>) -> O<T>
     {
@@ -120,8 +78,10 @@ extension Observable
         // right >> left
     }
 
-    
 }
+
+
+
 /*________________________
  
         Link
@@ -146,7 +106,7 @@ extension Observable
             if now.timeIntervalSince(time) > duration
             {
                 time = now
-                $0.broadcast($1)
+                $0 ->> $1
             }
         }
         
@@ -161,7 +121,7 @@ extension Observable
         {
             if index > count
             {
-                $0.broadcast($1)
+                $0 ->> $1
             }
             index = index + 1
         }
@@ -175,7 +135,7 @@ extension Observable
         {
             if index < count
             {
-                $0.broadcast($1)
+                $0 ->> $1
             }else
             {
                 $0.close()
@@ -204,26 +164,6 @@ extension Observable
             for _ in 0..<times { $0.broadcast($1) }
         }
     }
-    
-    
-    
-}
-
-/*_____________________________________________
- 
-                Transform
- _____________________________________________*/
-extension Observable
-{
-    //    func transform<U>(_ name: String = "Transform", _ f: @escaping (T)->U) -> Observable<U>
-    //    {
-    //        let o = O<U>(f(value))
-    //        o.name = name
-    //        observe{
-    //            o << f($0)
-    //        }
-    //        return o
-    //    }
     
     // Is this a transform?
     func cache(_ max:Int? = 1) -> Observable<[T]>
@@ -272,7 +212,6 @@ extension Observable
 //            return Reduce(source: self.asObservable(), seed: seed, accumulator: accumulator, mapResult: mapResult)
 //    }
     
-    //TODO
     func reduce<A, R>(_ seed: A, accumulator: @escaping (A, T)  -> A, mapResult: @escaping (A)  -> R ) -> Observable<R>
     {
         var total = accumulator(seed, value)
@@ -314,3 +253,33 @@ extension Observable where T: Equatable
     }
 }
 
+extension String
+{
+    static prefix func ~ (o:String) -> O<String> { return o.observable }
+    var observable: O<String> { return O<String>(self) }
+}
+extension Int
+{
+    static prefix func ~ (o:Int) -> O<Int> { return o.observable }
+    var observable:O<Int> { return O<Int>(self) }
+}
+extension Double
+{
+    static prefix func ~ (o:Double) -> O<Double> { return o.observable }
+    var observable:O<Double> { return O<Double>(self) }
+}
+extension Float
+{
+    static prefix func ~ (o:Float) -> O<Float> { return o.observable }
+    var observable:O<Float> { return O<Float>(self) }
+}
+extension Array
+{
+    static prefix func ~ (o:Array) -> O<Array> { return o.observable }
+    var observable:O<Array> { return O<Array>(self) }
+}
+extension Dictionary
+{
+    static prefix func ~ (o:Dictionary) -> O<Dictionary> { return o.observable }
+    var observable:O<Dictionary> { return O<Dictionary>(self) }
+}
