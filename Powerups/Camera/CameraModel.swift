@@ -19,7 +19,7 @@ protocol CameraModelDelegate //This could just be a closure
     func processPixels(sampleBuffer: CMSampleBuffer)
 }
 
-class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, CameraModelDelegate
+class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate, CameraModelDelegate
 {
     var delegate: CameraModelDelegate?
     
@@ -29,22 +29,37 @@ class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Camera
     var captureDeviceResolution: CGSize = CGSize()
     var session: AVCaptureSession?
     var bufferSize: CGSize = .zero
-    
+    let metadataOutput = AVCaptureMetadataOutput()
+
     func setupSession()
     {
-        session = AVCaptureSession()
+        let session = AVCaptureSession()
+        self.session = session
         //These two calls should bookend configuration
-        session?.beginConfiguration()
+        session.beginConfiguration()
         configureInput()
         configureOutput()
-        session?.commitConfiguration()
+       /*
+        if session.canAddOutput(metadataOutput) {
+            session.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            
+            metadataOutput.metadataObjectTypes=metadataOutput.availableMetadataObjectTypes
+            //                metadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr, AVMetadataObject.ObjectType.upce]
+        }*/
+
+        session.commitConfiguration()
+
     }
     
     func configureInput()
     {
+        
         guard let session = session else { return }
         
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back)
+        
         if let device = deviceDiscoverySession.devices.first
         {
             if let deviceInput = try? AVCaptureDeviceInput(device: device)
@@ -57,6 +72,7 @@ class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Camera
                 }
             }
             captureDevice = device
+            
         }
     }
     
@@ -80,7 +96,8 @@ class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Camera
             {
                 print("Could not add video data output to the session")
                 return
-            }
+            }            
+            
             
             let captureConnection = videoDataOutput?.connection(with: .video)
             // Always process the frames
@@ -120,5 +137,17 @@ class CameraModel:NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Camera
     func processPixels(sampleBuffer: CMSampleBuffer)
     {
         
+    }
+    
+
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection){
+        
+        if let metadataObject = metadataObjects.first {
+            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            if let string = readableObject.stringValue {
+                print(string)
+            }
+        }
     }
 }
