@@ -44,7 +44,7 @@ extension NSObject
     }
     
     func observe(notification: String, closure: @escaping NotificationClosure){
-        NotificationCenter.default.addObserver(forName: Notification.Name(notification), object: self, queue: nil, using:closure)
+        NotificationCenter.default.addObserver(forName: Notification.Name(notification), object: nil, queue: nil, using:closure)
     }
     
     func stopObserving(notification: String){
