@@ -22,44 +22,45 @@ import UIKit
     var emoji: String?
     var cellIdentifier: String { return "TableCell" }
     
-    var autoDeselct = true
-    var selectedAction: Block?
+    var autoDeselect = true
+    var selectedAction: Closure<IndexPath>?
     var deselectedAction: Block?
     
     var tableItem: TableItem { return self }
     var pickerElements: [String]?
+    var selected = false
     
-    convenience init(title: String) {
+    var selectionStyle:UITableViewCell.SelectionStyle = .default
+    
+    convenience init(title: String)
+    {
         self.init()
         self.title = title
     }
     
-    //    @objc dynamic var isSelected = false {
-    //        didSet{
-    //            isSelected ? selectedAction?() : deselectedAction?()
-    //            if isSelected && autoDeselct {
-    //                delay(0.1) { [unowned self] in
-    //                    self.isSelected = false
-    //                }
-    //            }
-    //        }
-    //    }
-    
-    func cell(tableView: UITableView) -> TableCell {
-        return TableCell()
+    func cell(tableView: UITableView) -> TableCell
+    {
+        let cell = TableCell()
+        cell.isHighlighted = true
+        cell.isSelected = selected
+        cell.selectionStyle = self.selectionStyle
+        return cell
     }
     
 }
 
 
-protocol TableItemProvider {
+protocol TableItemProvider
+{
     var tableItem: TableItem { get }
 }
 
 
-extension String: TableItemProvider {
+extension String: TableItemProvider
+{
     
-    var tableItem: TableItem {
+    var tableItem: TableItem
+    {
         let item = TableItem()
         item.title = self
         return item

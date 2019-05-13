@@ -8,8 +8,8 @@
 
 import Foundation
 
-
-let sum = reduce(0) { (r, i)  in r + i }
+// Doesn't compile in Swift 5
+//let sum = reduce(0) { (r, i)  in r + i }
 
 
 ///---------------------------------------

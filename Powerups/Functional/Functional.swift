@@ -38,10 +38,15 @@ func map<A, B>(_ f: @escaping Fun<A,B>) -> Fun<[A],[B]>
     return { $0.map(f) }
 }
 
+
+
+/*
+ // Doesn't compile in Swift 5
 func reduce<A,B>(_ i:B, _ f: @escaping Fun<(B,A),B>) -> Fun<[A],B>
 {
     return { $0.reduce(i, f) }
 }
+*/
 
 //flatmap
 //sorted(by:

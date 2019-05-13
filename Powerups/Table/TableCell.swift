@@ -12,45 +12,44 @@ import UIKit
 
 				Table Cell
 _____________________________________________*/
-class TableCell: UITableViewCell {
-
-	let messageView = UITextView()
+class TableCell: UITableViewCell
+{
 	let messageLabel = UILabel()
-	let bgView = UIView()
-
-
-	//Emoji View
-	let circle = UIView()
-	public let emojiView = UILabel()
-    
 
 	weak var controller: TableController?
 
-	func setup(row: TableItem) {
-
-
-		contentView.addSubview(bgView)
-		bgView.pin(view: contentView, top: 10, bottom: 10, left: 0, right: 0)
+    func showCheckMark()
+    {
+        let label = UILabel()
+        label.text = "✅"
+        label.sizeToFit()
+        accessoryView = label
+    }
+    
+    func hideCheckMark()
+    {
+        accessoryView = nil
+    }
+    
+	func setup(row: TableItem)
+    {
 
 		addMessageLabel(text: row.title)
-		//contentView.addSubview(circle)
-		circle.frame = CGRect(x: 10, y: 24, width: 48, height: 48)
-		circle.addSubview(emojiView)
-		emojiView.align(width:1.2, height:1.2)
-		emojiView.isHidden = true
-		if let emoji = row.emoji {
-			emojiView.isHidden = false
-			emojiView.text = emoji
-		}
-
-
 		design()
+        if row.selected
+        {
+            showCheckMark()
+        }else{
+            hideCheckMark()
+        }
 
 	}
 
-	private func addMessageLabel(text: String? = nil) {
+	private func addMessageLabel(text: String? = nil)
+    {
 		contentView.addSubview(messageLabel)
-		if let t = text {
+		if let t = text
+        {
 			messageLabel.text = t
 		}
 		messageLabel.isUserInteractionEnabled = false
@@ -61,55 +60,14 @@ class TableCell: UITableViewCell {
 		messageLabel.numberOfLines = 3
 	}
 
-	private func addMessageView(text: String) {
-		contentView.addSubview(messageView)
-		messageView.text = text
-		messageView.isEditable = false
-		messageView.isUserInteractionEnabled = false
-		messageView.frame = contentView.bounds
-		messageView.pin(view: contentView, top: 10, bottom: 10, left: 64, right: 18)
-		messageView.backgroundColor = .red
-		messageView.borderWidth = 1
-		messageView.borderColor = .white
-	}
 
-//    func selected() {
-//        UIView.animate(withDuration: 0.1) { [unowned self] in
-//            self.bgView.backgroundColor = .cellSelectedColor
-//            self.messageView.backgroundColor = .cellSelectedColor
-//        }
-//    }
-//
-//    func deselected() {
-//        UIView.animate(withDuration: 0.2) { [unowned self] in
-//            self.bgView.backgroundColor = .cellColor
-//            self.messageView.backgroundColor = .cellColor
-//        }
-//    }
 
-	override func design() {
+
+	override func design()
+    {
 		super.design()
-//		selectionStyle = .none
-		bgView.backgroundColor = .cellColor
-		bgView.layer.cornerRadius = 16
-
-
-		circle.backgroundColor = .gray(6)
-		circle.cornerRadius = 24
-		emojiView.textAlignment = .center
-		emojiView.backgroundColor = .clear
-		emojiView.cornerRadius = circle.cornerRadius
-		emojiView.font = UIFont.systemFont(ofSize: 16)
-		emojiView.textColor = .white
-
-		//messageView.backgroundColor = .cellColor
-		//messageView.textColor = UIColor.cellTextColor
-		//messageView.centerVertically()
-		messageLabel.backgroundColor = .clear
+//		messageLabel.backgroundColor = .clear
+//        contentView.backgroundColor = .blue
 	}
 
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		//messageView.centerVertically()
-	}
 }

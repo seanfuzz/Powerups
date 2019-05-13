@@ -36,17 +36,7 @@ import UIKit
         self.title = title
     }
     
-    //    @objc dynamic var isSelected = false {
-    //        didSet{
-    //            isSelected ? selectedAction?() : deselectedAction?()
-    //            if isSelected && autoDeselct {
-    //                delay(0.1) { [unowned self] in
-    //                    self.isSelected = false
-    //                }
-    //            }
-    //        }
-    //    }
-    
+
     func cell(collectionView: UICollectionView) -> CollectionCell {
         
         return CollectionCell()
