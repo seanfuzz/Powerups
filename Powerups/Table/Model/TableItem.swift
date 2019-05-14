@@ -19,7 +19,7 @@ import UIKit
     var subtitle: String?
     var image: UIImage?
     var height: CGFloat = 100
-    var emoji: String?
+//    var emoji: String?
     var cellIdentifier: String { return "TableCell" }
     
     var autoDeselect = true
@@ -45,6 +45,7 @@ import UIKit
         cell.isHighlighted = true
         cell.isSelected = selected
         cell.selectionStyle = self.selectionStyle
+        cell.messageLabel.font = UIFont.systemFont(ofSize: 10)
         return cell
     }
     

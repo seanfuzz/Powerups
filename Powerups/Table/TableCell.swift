@@ -48,15 +48,16 @@ class TableCell: UITableViewCell
 	private func addMessageLabel(text: String? = nil)
     {
 		contentView.addSubview(messageLabel)
+        messageLabel.font = UIFont.systemFont(ofSize: 20)
+        //messageLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 12.0)
+
 		if let t = text
         {
-			messageLabel.text = t
+			messageLabel.text =  t
 		}
 		messageLabel.isUserInteractionEnabled = false
 		messageLabel.pin(view: contentView, top: 10, bottom: 10, left: 64, right: 18)
-		messageLabel.backgroundColor = .red
 		messageLabel.borderWidth = 0
-		messageLabel.borderColor = .white
 		messageLabel.numberOfLines = 3
 	}
 
@@ -65,7 +66,7 @@ class TableCell: UITableViewCell
 
 	override func design()
     {
-		super.design()
+		//super.design()
 //		messageLabel.backgroundColor = .clear
 //        contentView.backgroundColor = .blue
 	}
