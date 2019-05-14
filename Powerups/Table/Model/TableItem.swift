@@ -41,6 +41,7 @@ import UIKit
     func cell(tableView: UITableView) -> TableCell
     {
         let cell = TableCell()
+        cell.accessoryView = nil
         cell.isHighlighted = true
         cell.isSelected = selected
         cell.selectionStyle = self.selectionStyle
