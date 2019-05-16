@@ -33,14 +33,13 @@ class TableCell: UITableViewCell
     
 	func setup(row: TableItem)
     {
-
+        
 		addMessageLabel(text: row.title)
 		design()
+        hideCheckMark()
         if row.selected
         {
             showCheckMark()
-        }else{
-            hideCheckMark()
         }
 
 	}
