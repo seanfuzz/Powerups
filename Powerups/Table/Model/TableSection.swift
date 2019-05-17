@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol TableSectionProvider {
+protocol TableSectionProvider
+{
     var tableSection: TableSection { get }
 }
 
@@ -16,8 +17,8 @@ protocol TableSectionProvider {
  
                 Table Section
  _____________________________________________*/
-class TableSection: NSObject, TableSectionProvider {
-    
+class TableSection: NSObject, TableSectionProvider
+{
     var rows = [TableItem]()
     var title: String?
     var open: Bool = true
@@ -25,9 +26,10 @@ class TableSection: NSObject, TableSectionProvider {
     var indexName: String?
     var header: UIView?
     
-    func add(item: TableItem){
+    func add(item: TableItem)
+    {
         rows.append(item)
     }
     
-    var tableSection: TableSection{ return self }
+    var tableSection: TableSection { return self }
 }

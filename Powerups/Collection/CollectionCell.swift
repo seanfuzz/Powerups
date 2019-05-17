@@ -9,11 +9,14 @@
 import UIKit
 
 
-class CollectionCell: UICollectionViewCell {
-    
-    func setup(row: CollectionItem) {
-        let label = UILabel()
+class CollectionCell: UICollectionViewCell
+{
+    let label = UILabel()
+
+    func setup(row: CollectionItem)
+    {
         contentView.addSubview(label)
+        label.numberOfLines = 3
         label.text = row.title
         label.textAlignment = .center
         label.pin()

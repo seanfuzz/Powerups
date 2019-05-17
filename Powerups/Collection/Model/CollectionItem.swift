@@ -25,7 +25,7 @@ import UIKit
     var cellIdentifier: String { return "CollectionCell" }
     
     var autoDeselct = true
-    var selectedAction: Block?
+    var selectedAction: Closure<IndexPath>?
     var deselectedAction: Block?
     
     var collectionItem: CollectionItem { return self }
