@@ -7,7 +7,23 @@
 //
 
 import UIKit
-
+class EditTableModel: TableModel
+{
+    var willDeleteAction: Closure<IndexPath>?
+    var wasDeletedAction: Closure<IndexPath>?
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+         if editingStyle == .delete
+         {
+            
+            willDeleteAction?(indexPath)
+            sections[indexPath.section].rows.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            wasDeletedAction?(indexPath)
+         }
+    }
+}
 /*_____________________________________________
 
 				Table Model
@@ -20,6 +36,7 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     var autoDeselect = true
 	weak var controller: TableController?
 
+    
 	func itemAt(indexPath: IndexPath) -> TableItem?
     {
 		guard sections.count > indexPath.section else { return nil }
@@ -94,5 +111,6 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
 
 	}
+
 
 }

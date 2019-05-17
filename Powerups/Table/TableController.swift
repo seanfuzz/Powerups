@@ -14,7 +14,12 @@ import UIKit
 _____________________________________________*/
 class TableController: UIViewController {
 
- 	var tableModel = TableModel()
+    var tableModel = TableModel() {
+        didSet{
+            tableView.dataSource = tableModel
+            tableView.delegate = tableModel
+        }
+    }
 	var tableView = TableView()
 
 	var footerView: UIView? {
@@ -63,4 +68,6 @@ class TableController: UIViewController {
 		return section
 	}
 
+    //
+    
 }
