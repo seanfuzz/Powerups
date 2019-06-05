@@ -83,9 +83,22 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
     	}
 	}
 
-//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
-//
-//	}
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let label = UILabel()
+        let v = UIView()
+        if section < sections.count
+        {
+            label.text = (sections[section].title ?? "")
+        }
+        v.addSubview(label)
+        label.textColor = UIColor(white: 0.4, alpha: 1)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.sizeToFit()
+
+        label.pin(left: 20)
+        return v
+	}
 
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
