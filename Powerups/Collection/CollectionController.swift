@@ -30,7 +30,7 @@ class CollectionController: Controller
         }
         
         view.backgroundColor = UIColor.backgroundColor
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = .gray(0)
         
         collectionView?.pin(view: view)
         collectionView?.reloadData()

@@ -38,8 +38,10 @@ import UIKit
     
 
     func cell(collectionView: UICollectionView) -> CollectionCell {
-        
-        return CollectionCell()
+        let cell = CollectionCell()
+        cell.backgroundColor = .gray(1)
+        cell.contentView.backgroundColor = .gray(1)
+        return cell
     }
     
 }

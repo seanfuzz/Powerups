@@ -20,6 +20,7 @@ class CollectionCell: UICollectionViewCell
         label.text = row.title
         label.textAlignment = .center
         label.pin()
+        label.backgroundColor = .gray(0)
     }
     
 }

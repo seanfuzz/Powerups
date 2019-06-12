@@ -99,7 +99,7 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
         label.pin(left: 20)
         return v
 	}
-
+    
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
 		if let row = itemAt(indexPath: indexPath)

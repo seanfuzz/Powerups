@@ -59,13 +59,26 @@ class CollectionModel: NSObject, UICollectionViewDataSource, UICollectionViewDel
         if  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CollectionCell
         {
             cell.contentView.borderColor = UIColor.gray
-            cell.contentView.borderWidth = 1
+//            cell.contentView.borderWidth = 1
             cell.setup(row:sections[indexPath.section].rows[indexPath.row])
             return cell
         }
         return sections[indexPath.section].rows[indexPath.row].cell(collectionView: collectionView)
     }
+    
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath as IndexPath)
+        
+        headerView.frame.size.height = 100
+        //headerView.backgroundColor = .blue
+        
+        return headerView
+    }
 }
+
+
 
 /*______________________________________________________________
  
