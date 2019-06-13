@@ -36,14 +36,23 @@ import UIKit
         self.title = title
     }
     
-
+/*
     func cell(collectionView: UICollectionView) -> CollectionCell {
         let cell = CollectionCell()
         cell.backgroundColor = .gray(1)
         cell.contentView.backgroundColor = .gray(1)
         return cell
+    }*/
+
+    func cell(collectionView: UICollectionView, indexPath:IndexPath) -> CollectionCell
+    {
+        
+        let cell = CollectionCell()
+        cell.backgroundColor = .gray(1)
+        cell.contentView.backgroundColor = .gray(1)
+        return cell
     }
-    
+
 }
 
 

@@ -18,7 +18,7 @@ class CollectionModel: NSObject, UICollectionViewDataSource, UICollectionViewDel
     var sections = [CollectionSection]()
     let defaultRowHeight = CGFloat(100)
    
-    public let cellIdentifier = "CollectionCell"
+    public var cellIdentifier = "CollectionCell"
     
     var autoDeselect = true
     weak var controller: CollectionController?
@@ -56,6 +56,21 @@ class CollectionModel: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
+        
+        
+        if sections.count > indexPath.section
+        {
+            let s = sections[indexPath.section]
+            if s.rows.count > indexPath.row
+            {
+                let r = s.rows[indexPath.row]
+                
+                return r.cell(collectionView: collectionView, indexPath: indexPath)
+                //cell.setup(row:sections[indexPath.section].rows[indexPath.row])
+            }
+        }
+        
+        
         if  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CollectionCell
         {
             cell.contentView.borderColor = UIColor.gray
@@ -63,7 +78,8 @@ class CollectionModel: NSObject, UICollectionViewDataSource, UICollectionViewDel
             cell.setup(row:sections[indexPath.section].rows[indexPath.row])
             return cell
         }
-        return sections[indexPath.section].rows[indexPath.row].cell(collectionView: collectionView)
+ 
+        return UICollectionViewCell()//sections[indexPath.section].rows[indexPath.row].cell(collectionView: collectionView)
     }
     
     
