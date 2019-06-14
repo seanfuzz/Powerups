@@ -16,7 +16,7 @@ class CollectionController: Controller
 {
     
     var collectionModel = CollectionModel()
-    var collectionView:CollectionView?
+    var collectionView: CollectionView?
     let layout = UICollectionViewFlowLayout()
 
     override func viewDidLoad() {

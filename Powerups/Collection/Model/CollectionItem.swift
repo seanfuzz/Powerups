@@ -31,7 +31,8 @@ import UIKit
     var collectionItem: CollectionItem { return self }
     var pickerElements: [String]?
     
-    convenience init(title: String) {
+    convenience init(title: String)
+    {
         self.init()
         self.title = title
     }
@@ -47,10 +48,16 @@ import UIKit
     func cell(collectionView: UICollectionView, indexPath:IndexPath) -> CollectionCell
     {
         
-        let cell = CollectionCell()
-        cell.backgroundColor = .gray(1)
-        cell.contentView.backgroundColor = .gray(1)
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(CollectionCell.self)", for: indexPath) as? CollectionCell
+        {
+            cell.backgroundColor = .gray(1)
+            cell.contentView.backgroundColor = .gray(1)
+            return cell
+        }
+
+        collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "\(CollectionCell.self)")
+        return cell(collectionView: collectionView, indexPath: indexPath)
+        
     }
 
 }
