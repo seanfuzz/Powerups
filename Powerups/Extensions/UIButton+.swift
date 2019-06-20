@@ -64,7 +64,12 @@ extension UIButton
         touchUpActions.append(a)
         return a
     }
-
+    
+    func removeAllTouchUps()
+    {
+        touchUpActions.removeAll()
+    }
+    
     func removeTouchUp(action:Action)
     {
         var actions = touchUpActions
