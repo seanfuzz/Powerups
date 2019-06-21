@@ -82,9 +82,31 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
 			tableViewHeaderFooterView.design()
     	}
 	}
+    
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        if section < sections.count
+        {
+            if let header = sections[section].header
+            {
+                return header.frame.height
+            }
+        }
+
+        return 40
+    }
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
+        if section < sections.count
+        {
+            if let header = sections[section].header
+            {
+                return header
+            }
+        }
+        
         let label = UILabel()
         let v = UIView()
         if section < sections.count
