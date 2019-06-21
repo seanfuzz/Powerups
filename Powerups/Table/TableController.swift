@@ -20,7 +20,7 @@ class TableController: UIViewController {
             tableView.delegate = tableModel
         }
     }
-	var tableView = TableView()
+	var tableView = TableView(frame: .zero, style: .grouped)
 
 	var footerView: UIView? {
 		get { return tableView.tableFooterView }
@@ -38,9 +38,6 @@ class TableController: UIViewController {
 		tableModel.controller = self
 		tableView.model = tableModel
 		view.addSubview(tableView)
-
-//		view.backgroundColor = UIColor.backgroundColor
-//		tableView.pinToViewMargins(other: view)
 
 		tableView.pin(view: view)
 		tableView.reloadData()

@@ -93,7 +93,7 @@ class TableModel: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         v.addSubview(label)
         label.textColor = UIColor(white: 0.4, alpha: 1)
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.sizeToFit()
 
         label.pin(left: 20)
