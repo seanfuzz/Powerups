@@ -34,6 +34,8 @@ class CollectionController: Controller
         
         collectionView?.pin(view: view)
         collectionView?.reloadData()
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
     }
 
     @discardableResult
