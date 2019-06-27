@@ -18,7 +18,7 @@ import UIKit
     var title: String?
     var subtitle: String?
     var image: UIImage?
-    var height: CGFloat = 100
+    public var height: CGFloat = 100
 //    var emoji: String?
     var cellIdentifier: String { return "TableCell" }
     
