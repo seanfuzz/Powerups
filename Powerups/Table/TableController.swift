@@ -20,7 +20,7 @@ class TableController: UIViewController {
             tableView.delegate = tableModel
         }
     }
-	var tableView = TableView(frame: .zero, style: .grouped)
+	var tableView = TableView(frame: .zero, style: .plain)
 
 	var footerView: UIView? {
 		get { return tableView.tableFooterView }
